@@ -1,0 +1,4988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website</title>
+
+<style>
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+
+.top-section{
+    background-color: #d7a794;
+    padding-bottom: 50px;
+    
+   
+}
+
+
+.una{
+    background-color: #c46764;
+    padding: 20px 60px;
+    color: white;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    
+
+}
+
+
+
+
+
+/* HERO */
+.hero{
+    margin-top: 40px;
+    text-align: center;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.fresh{
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.hand{
+    font-size: 20px;
+    margin-top: 10px;
+
+}
+
+
+.photo{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.card{
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: all 0.4s ease;
+}
+
+.card img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.card .text{
+    position: absolute;
+    bottom: 190px;
+    left: 40px;
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+
+    transition: transform 0.4s ease;
+}
+
+.card::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+    border-radius: 25px;
+}
+
+.card:hover{
+    transform: scale(1.04);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.card:hover img{
+    transform: scale(1.08);
+}
+
+.card:hover .text{
+    transform: translateY(-5px);
+}
+
+
+.next-section{
+    background-color: white;
+    padding: 80px 60px;
+    text-align: center;
+}
+
+.next-section h2{
+    font-size: 35px;
+    margin-bottom: 20px;
+    color: #c46764;
+}
+
+.next-section p{
+    font-size: 18px;
+    color: #555;
+    max-width: 600px;
+    margin: auto;
+}
+/* TOP TITLE */
+.top{
+    color: #c46764;
+    text-align: center;
+    margin: 60px 0 30px;
+    font-size: 38px;
+}
+
+/* GRID */
+.top-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 0 60px 80px;
+}
+
+/* CARD */
+.top-card{
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.top-card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+.top-card img{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+
+    transition: 0.4s ease;
+}
+
+.top-card:hover img{
+    transform: scale(1.05);
+}
+
+/* INFO */
+.top-info{
+    padding: 18px;
+    text-align: center;
+}
+
+.top-info h4{
+    color: #c46764;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.top-info p{
+    color: #555;
+}
+
+/* POPUP */
+.product-popup{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+
+    z-index: 999;
+}
+
+.product-popup.show{
+    opacity: 1;
+    visibility: visible;
+}
+
+/* CONTENT */
+.popup-content{
+    width: 85%;
+    max-width: 1000px;
+
+    background: white;
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    transform: scale(0.9);
+
+    transition: 0.3s ease;
+}
+
+.product-popup.show .popup-content{
+    transform: scale(1);
+}
+
+/* LEFT */
+.popup-left{
+    width: 50%;
+}
+
+.popup-left img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* RIGHT */
+.popup-right{
+    width: 50%;
+    padding: 40px;
+}
+
+.popup-right h2{
+    font-size: 38px;
+    color: #c46764;
+    margin-bottom: 10px;
+}
+
+.popup-right h3{
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.popup-right p{
+    color: #555;
+    line-height: 1.7;
+}
+
+/* SECTION */
+.popup-section{
+    margin-top: 25px;
+}
+
+.popup-section h4{
+    color: #c46764;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.popup-close{
+    position: fixed;
+    top: 20px;
+    right: 30px;
+
+    font-size: 50px;
+    color: white;
+
+    cursor: pointer;
+
+    z-index: 2000;
+
+    transition: 0.3s ease;
+}
+
+.popup-close:hover{
+    transform: scale(1.15) rotate(90deg);
+}
+
+.buy-btn{
+    margin-top: 100px;
+    padding: 15px 35px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: #c46764;
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+    
+}
+
+.buy-btn:hover{
+    background: #a94f4c;
+    transform: scale(1.05);
+}
+
+.checkout-page{
+    width: 100%;
+    max-width: 700px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 30px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+    animation: fadeIn 0.6s ease;
+}
+
+/* TITLE */
+.checkout-page h1{
+    color: #c46764;
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    font-size: 40px;
+}
+
+/* LABELS */
+.checkout-page p,
+.checkout-page h3{
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+    color: #444;
+
+    font-weight: 600;
+}
+
+/* INPUTS */
+input,
+textarea{
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    border: 1px solid #ddd;
+
+    outline: none;
+
+    font-size: 15px;
+
+    transition: 0.3s ease;
+}
+
+
+
+input:focus,
+textarea:focus{
+    border-color: #c46764;
+
+    box-shadow: 0 0 10px rgba(196,103,100,0.2);
+}
+
+/* TEXTAREA */
+textarea{
+    height: 120px;
+    resize: none;
+}
+
+/* PAYMENT */
+.payment-method{
+    margin-top: 15px;
+}
+
+.payment-method label{
+    margin-left: 8px;
+    color: #555;
+}
+
+/* BUTTON */
+.confirm-btn{
+    width: 100%;
+
+    margin-top: 35px;
+
+    padding: 18px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: #c46764;
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.confirm-btn:hover{
+    background: #a84f4d;
+    transform: scale(1.02);
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* RESPONSIVE */
+@media(max-width: 700px){
+
+    .checkout-page{
+        padding: 25px;
+    }
+
+    .checkout-page h1{
+        font-size: 30px;
+        text-align: center;
+    }
+
+}
+
+.checkout-popup{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 999;
+}
+
+.checkout-box{
+    background: white;
+    width: 100%;
+    max-width: 700px;
+
+    border-radius: 25px;
+    padding: 30px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    position: relative;
+    animation: pop 0.3s ease;
+}
+
+@keyframes pop{
+    from{transform: scale(0.8); opacity: 0;}
+    to{transform: scale(1); opacity: 1;}
+}
+
+.close-checkout{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.checkout-page h2{
+    color: #c46764;
+    margin-bottom: 10%;
+    text-align: center;
+}
+ 
+ .close-checkout{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.checkout-page input,
+.checkout-page textarea{
+    width: 100%;
+    padding: 12px;
+
+    border-radius: 12px;
+    border: 1px solid #ddd;
+
+    margin-top: 5px;
+    margin-bottom: 15px;
+
+    outline: none;
+}
+
+.checkout-page input:focus,
+.checkout-page textarea:focus{
+    border-color: #c46764;
+    box-shadow: 0 0 8px rgba(196,103,100,0.2);
+}
+
+/* payment spacing */
+.checkout-page input[type="radio"]{
+    width: auto;
+    margin-right: 8px;
+    margin-bottom: 10px;
+}
+
+/* quantity box */
+.qty-input{
+    width: 120px !important;
+    text-align: center;
+}
+
+/* totals section */
+.checkout-page h2,
+.checkout-page h3{
+    text-align: left;
+}
+
+/* confirm button */
+.confirm-btn{
+    width: 100%;
+    padding: 15px;
+
+    margin-top: 20px;
+
+    border: none;
+    border-radius: 50px;
+
+    background: #c46764;
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.confirm-btn:hover{
+    background: #a84f4c;
+    transform: scale(1.02);
+}
+
+.checkout-box{
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.payment-option{
+    display: block; /* hindi flex row */
+}
+
+.payment-option label{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.total-box{
+    text-align: left;
+    margin-top: 15px;
+}
+
+/* PAYMENT WRAPPER */
+.payment-option{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ALL PAYMENT ROWS */
+.cod,
+.pay-row{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* hover effect */
+.cod:hover,
+.pay-row:hover{
+    background: #f7f7f7;
+}
+
+/* IMAGE SIZE (GCash / PayPal) */
+.pay-img{
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* TEXT */
+.cod span,
+.pay-row span{
+    font-size: 16px;
+    color: #444;
+}
+
+.cod,
+.pay-row{
+    cursor: pointer;
+}
+
+/* MOTHERCOLLECTIONNNNNNNNNNNNNNNNNNNNN */
+
+.motherp{
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 770px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: large;
+}
+
+.motherflowers h2
+{
+    text-align: center;
+    color: #c46764;
+    margin-bottom: 1%;
+    font-size: 40px;
+}
+
+.motherflowers{
+    position: fixed;
+    inset: 0;
+
+    background: white;
+
+    z-index: 9999;
+
+    padding: 50px;
+
+    display: none;
+
+    overflow-y: auto;
+}
+
+.motherflowers.show{
+    display: block;
+}
+
+.product-popup{
+    z-index: 999;
+}
+/* close button */
+.close-btn{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    font-size: 40px;
+    cursor: pointer;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.mother-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 0 60px 80px;
+}
+
+.motherflowers-card
+{
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.motherflowers-card:hover
+{
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.motherflowers-card img
+{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+
+    transition: 0.4s ease;
+}
+
+.motherflowers-card img:hover
+{
+    transform: scale(1.05);
+}
+
+.motherflowers-info
+{
+    padding: 18px;
+    text-align: center;
+}
+
+.motherflowers-info h4
+{
+    color: #c46764;
+    font-size: 22px;
+    margin-bottom: 8px;
+}   
+
+.motherflowers-info p
+{
+    color: #555;
+    }
+
+.motherflowers{
+    pointer-events: none;
+}
+
+.motherflowers.show{
+    pointer-events: auto;
+}
+
+.motherflowers-card{
+    position: relative;
+    z-index: 2;
+}
+.motherflowers { z-index: 3000; }
+.checkout-popup { z-index: 4000; }
+.product-popup { z-index: 5000; }
+
+.close-btn{
+    top: 20px;
+    right: 10%;
+
+    font-size: 50px;
+    color: #555;
+
+    cursor: pointer;
+
+    z-index: 2000;
+
+    transition: 0.3s ease;
+}
+
+.close-btn:hover{
+    transform: scale(1.2) rotate(90deg);
+    color: #555;
+}
+
+
+
+hr{
+    width: 85%;
+    margin: auto;
+}
+
+
+.shopincat{
+    text-align: center;
+    color: #c46764;
+    margin: 60px 0 30px;
+    font-size: 38px;
+}
+
+
+.category-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 60px 60px;
+}
+
+
+.valenphoto{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.vcard{
+    position: relative;
+    
+   
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: all 0.4s ease;
+}
+
+.vcard img{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.vcard .text{
+    position: absolute;
+    bottom: 150px;
+    left: 40px;
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+
+    transition: transform 0.4s ease;
+}
+
+.vcard::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+    border-radius: 25px;
+}
+
+.vcard:hover{
+    transform: scale(1.04);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.vcard:hover img{
+    transform: scale(1.08);
+}
+
+.vcard:hover .text{
+    transform: translateY(-5px);
+}
+
+
+
+
+.gradphoto{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.gcard{
+    position: relative;
+    
+   
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: all 0.4s ease;
+}
+
+.gcard img{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gcard .text{
+    position: absolute;
+    bottom: 150px;
+    left: 40px;
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+
+    transition: transform 0.4s ease;
+}
+
+.gcard::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+    border-radius: 25px;
+}
+
+.gcard:hover{
+    transform: scale(1.04);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.gcard:hover img{
+    transform: scale(1.08);
+}
+
+.gcard:hover .text{
+    transform: translateY(-5px);
+}
+
+
+
+
+
+.sympathyphoto{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.scard{
+    position: relative;
+    
+   
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: all 0.4s ease;
+}
+
+.scard img{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.scard .text{
+    position: absolute;
+    bottom: 150px;
+    left: 40px;
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+
+    transition: transform 0.4s ease;
+}
+
+.scard::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+    border-radius: 25px;
+}
+
+.scard:hover{
+    transform: scale(1.04);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.scard:hover img{
+    transform: scale(1.08);
+}
+
+.scard:hover .text{
+    transform: translateY(-5px);
+}
+
+
+
+
+.anniversaryphoto{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.acard{
+    position: relative;
+    
+   
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: all 0.4s ease;
+}
+
+.acard img{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.acard .text{
+    position: absolute;
+    bottom: 150px;
+    left: 40px;
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+
+    transition: transform 0.4s ease;
+}
+
+.acard::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+    border-radius: 25px;
+}
+
+.acard:hover{
+    transform: scale(1.04);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.acard:hover img{
+    transform: scale(1.08);
+}
+
+.acard:hover .text{
+    transform: translateY(-5px);
+}
+
+
+
+
+.bdayphoto{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.bcard{
+    position: relative;
+    
+   
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: all 0.4s ease;
+}
+
+.bcard img{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.bcard .text{
+    position: absolute;
+    bottom: 150px;
+    left: 40px;
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+
+    transition: transform 0.4s ease;
+}
+
+.bcard::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+    border-radius: 25px;
+}
+
+.bcard:hover{
+    transform: scale(1.04);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.bcard:hover img{
+    transform: scale(1.08);
+}
+
+.bcard:hover .text{
+    transform: translateY(-5px);
+}
+
+
+
+
+.weddingphoto{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.wcard{
+    position: relative;
+    
+   
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: all 0.4s ease;
+}
+
+.wcard img{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.wcard .text{
+    position: absolute;
+    bottom: 150px;
+    left: 40px;
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+
+    transition: transform 0.4s ease;
+}
+
+.wcard::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+    border-radius: 25px;
+}
+
+.wcard:hover{
+    transform: scale(1.04);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.wcard:hover img{
+    transform: scale(1.08);
+}
+
+.wcard:hover .text{
+    transform: translateY(-5px);
+}
+
+
+
+
+
+.vdayp{
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 770px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: large;
+}
+
+.valentineflowers h2
+{
+    text-align: center;
+    color: #c46764;
+    margin-bottom: 1%;
+    font-size: 40px;
+}
+
+.valentineflowers{
+    position: fixed;
+    inset: 0;
+
+    background: white;
+
+    z-index: 9999;
+
+    padding: 50px;
+
+    display: none;
+
+    overflow-y: auto;
+}
+
+.valentineflowers.show{
+    display: block;
+}
+
+
+.valentineflowers-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 0 60px 80px;
+}
+
+.valentineflowers-card
+{
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.valentineflowers-card:hover
+{
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.valentineflowers-card img
+{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+
+    transition: 0.4s ease;
+}
+
+.valentineflowers-card img:hover
+{
+    transform: scale(1.05);
+}
+
+.valentineflowers-info
+{
+    padding: 18px;
+    text-align: center;
+}
+
+.valentineflowers-info h4
+{
+    color: #c46764;
+    font-size: 22px;
+    margin-bottom: 8px;
+}   
+
+.valentineflowers-info p
+{
+    color: #555;
+    }
+
+.valentineflowers{
+    pointer-events: none;
+}
+
+.valentineflowers.show{
+    pointer-events: auto;
+}
+
+.valentineflowers-card{
+    position: relative;
+    z-index: 2;
+}
+
+.valentineflowers { z-index: 3000; }
+.checkout-popup { z-index: 4000; }
+.product-popup { z-index: 5000; }
+
+
+
+
+
+
+
+.gradp{
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 770px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: large;
+}
+
+.gradflowers h2
+{
+    text-align: center;
+    color: #c46764;
+    margin-bottom: 1%;
+    font-size: 40px;
+}
+
+.gradflowers{
+    position: fixed;
+    inset: 0;
+
+    background: white;
+
+    z-index: 9999;
+
+    padding: 50px;
+
+    display: none;
+
+    overflow-y: auto;
+}
+
+.gradflowers.show{
+    display: block;
+}
+
+
+.gradflowers-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 0 60px 80px;
+}
+
+.gradflowers-card
+{
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.gradflowers-card:hover
+{
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.gradflowers-card img
+{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+
+    transition: 0.4s ease;
+}
+
+.gradflowers-card img:hover
+{
+    transform: scale(1.05);
+}
+
+.gradflowers-info
+{
+    padding: 18px;
+    text-align: center;
+}
+
+.gradflowers-info h4
+{
+    color: #c46764;
+    font-size: 22px;
+    margin-bottom: 8px;
+}   
+
+.gradflowers-info p
+{
+    color: #555;
+    }
+
+.gradflowers{
+    pointer-events: none;
+}
+
+.gradflowers.show{
+    pointer-events: auto;
+}
+
+.gradflowers-card{
+    position: relative;
+    z-index: 2;
+}
+
+.gradflowers { z-index: 3000; }
+.checkout-popup { z-index: 4000; }
+.product-popup { z-index: 5000; }
+
+
+
+
+
+
+
+.sympathyp{
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 770px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: large;
+}
+
+.sympathyflowers h2
+{
+    text-align: center;
+    color: #c46764;
+    margin-bottom: 1%;
+    font-size: 40px;
+}
+
+.sympathyflowers{
+    position: fixed;
+    inset: 0;
+
+    background: white;
+
+    z-index: 9999;
+
+    padding: 50px;
+
+    display: none;
+
+    overflow-y: auto;
+}
+
+.sympathyflowers.show{
+    display: block;
+}
+
+
+.sympathyflowers-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 0 60px 80px;
+}
+
+.sympathyflowers-card
+{
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.sympathyflowers-card:hover
+{
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.sympathyflowers-card img
+{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+
+    transition: 0.4s ease;
+}
+
+.sympathyflowers-card img:hover
+{
+    transform: scale(1.05);
+}
+
+.sympathyflowers-info
+{
+    padding: 18px;
+    text-align: center;
+}
+
+.sympathyflowers-info h4
+{
+    color: #c46764;
+    font-size: 22px;
+    margin-bottom: 8px;
+}   
+
+.sympathyflowers-info p
+{
+    color: #555;
+    }
+
+.sympathyflowers{
+    pointer-events: none;
+}
+
+.sympathyflowers.show{
+    pointer-events: auto;
+}
+
+.sympathyflowers-card{
+    position: relative;
+    z-index: 2;
+}
+
+.sympathyflowers { z-index: 3000; }
+.checkout-popup { z-index: 4000; }
+.product-popup { z-index: 5000; }
+
+
+
+
+
+
+
+
+
+.anniversayp{
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 770px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: large;
+}
+
+.anniversaryflowers h2
+{
+    text-align: center;
+    color: #c46764;
+    margin-bottom: 1%;
+    font-size: 40px;
+}
+
+.anniversaryflowers{
+    position: fixed;
+    inset: 0;
+
+    background: white;
+
+    z-index: 9999;
+
+    padding: 50px;
+
+    display: none;
+
+    overflow-y: auto;
+}
+
+.anniversaryflowers.show{
+    display: block;
+}
+
+
+.anniversaryflowers-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 0 60px 80px;
+}
+
+.anniversaryflowers-card
+{
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.anniversaryflowers-card:hover
+{
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.anniversaryflowers-card img
+{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+
+    transition: 0.4s ease;
+}
+
+.anniversaryflowers-card img:hover
+{
+    transform: scale(1.05);
+}
+
+.anniversaryflowers-info
+{
+    padding: 18px;
+    text-align: center;
+}
+
+.anniversaryflowers-info h4
+{
+    color: #c46764;
+    font-size: 22px;
+    margin-bottom: 8px;
+}   
+
+.anniversaryflowers-info p
+{
+    color: #555;
+    }
+
+.anniversaryflowers{
+    pointer-events: none;
+}
+
+.anniversaryflowers.show{
+    pointer-events: auto;
+}
+
+.anniversaryflowers-card{
+    position: relative;
+    z-index: 2;
+}
+
+.anniversaryflowers { z-index: 3000; }
+.checkout-popup { z-index: 4000; }
+.product-popup { z-index: 5000; }
+
+
+
+
+
+
+
+
+
+.bdayp{
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 770px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: large;
+}
+
+.birthdayflowers h2
+{
+    text-align: center;
+    color: #c46764;
+    margin-bottom: 1%;
+    font-size: 40px;
+}
+
+.birthdayflowers{
+    position: fixed;
+    inset: 0;
+
+    background: white;
+
+    z-index: 9999;
+
+    padding: 50px;
+
+    display: none;
+
+    overflow-y: auto;
+}
+
+.birthdayflowers.show{
+    display: block;
+}
+
+
+.birthdayflowers-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 0 60px 80px;
+}
+
+.birthdayflowers-card
+{
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.birthdayflowers-card:hover
+{
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.birthdayflowers-card img
+{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+
+    transition: 0.4s ease;
+}
+
+.birthdayflowers-card img:hover
+{
+    transform: scale(1.05);
+}
+
+.birthdayflowers-info
+{
+    padding: 18px;
+    text-align: center;
+}
+
+.birthdayflowers-info h4
+{
+    color: #c46764;
+    font-size: 22px;
+    margin-bottom: 8px;
+}   
+
+.birthdayflowers-info p
+{
+    color: #555;
+    }
+
+.birthdayflowers{
+    pointer-events: none;
+}
+
+.birthdayflowers.show{
+    pointer-events: auto;
+}
+
+.birthdayflowers-card{
+    position: relative;
+    z-index: 2;
+}
+
+.birthdayflowers { z-index: 3000; }
+.checkout-popup { z-index: 4000; }
+.product-popup { z-index: 5000; }
+
+
+
+
+
+
+.weddingp{
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 770px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: large;
+}
+
+.weddingflowers h2
+{
+    text-align: center;
+    color: #c46764;
+    margin-bottom: 1%;
+    font-size: 40px;
+}
+
+.weddingflowers{
+    position: fixed;
+    inset: 0;
+
+    background: white;
+
+    z-index: 9999;
+
+    padding: 50px;
+
+    display: none;
+
+    overflow-y: auto;
+}
+
+.weddingflowers.show{
+    display: block;
+}
+
+
+.weddingflowers-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 0 60px 80px;
+}
+
+.weddingflowers-card
+{
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.weddingflowers-card:hover
+{
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.weddingflowers-card img
+{
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+
+    transition: 0.4s ease;
+}
+
+.weddingflowers-card img:hover
+{
+    transform: scale(1.05);
+}
+
+.weddingflowers-info
+{
+    padding: 18px;
+    text-align: center;
+}
+
+.weddingflowers-info h4
+{
+    color: #c46764;
+    font-size: 22px;
+    margin-bottom: 8px;
+}   
+
+.weddingflowers-info p
+{
+    color: #555;
+    }
+
+.weddingflowers{
+    pointer-events: none;
+}
+
+.weddingflowers.show{
+    pointer-events: auto;
+}
+
+.weddingflowers-card{
+    position: relative;
+    z-index: 2;
+}
+
+.weddingflowers { z-index: 3000; }
+.checkout-popup { z-index: 4000; }
+.product-popup { z-index: 5000; }
+
+
+
+
+
+
+/* ================= FOOTER ================= */
+
+.footer{
+    background: #c46764;
+    color: white;
+    padding: 60px 10%;
+    margin-top: 80px;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-brand h2{
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.footer-brand p{
+    max-width: 450px;
+    line-height: 1.7;
+}
+
+.footer-contact{
+    margin-top: 20px;
+}
+
+.footer-contact p{
+    margin-bottom: 10px;
+}
+
+.footer-links{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.footer-links a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover{
+    color: #ffe3e3;
+    transform: translateX(5px);
+}
+
+.footer-bottom{
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+
+
+/* ================= FULLSCREEN PAGE MODAL ================= */
+
+.footer-modal{
+    position: fixed;
+    inset: 0;
+
+    background: white;
+
+    z-index: 9999;
+
+    display: none;
+
+    overflow-y: auto;
+
+    padding: 60px 10%;
+}
+
+.footer-modal.show{
+    display: block;
+}
+
+
+
+/* CONTENT */
+
+.modal-content{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* CLOSE BUTTON */
+
+.close-btn{
+    position: fixed;
+    top: 25px;
+    right: 40px;
+
+    font-size: 45px;
+    cursor: pointer;
+
+    color: #c46764;
+
+    z-index: 10000;
+}
+
+
+
+/* TITLES */
+
+.modal-content h2{
+    color: #c46764;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+
+
+/* TEXT */
+
+.aboutp,
+.howp,
+.faqsp{
+    color: #555;
+    line-height: 1.9;
+    font-size: 18px;
+}
+
+
+
+/* FAQS */
+
+.faq-modal h2{
+    margin-top: 40px;
+}
+
+
+@media (max-width: 768px) {
+
+    .row {
+        flex-direction: column;
+    }
+
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .container {
+        padding: 10px;
+    }
+
+    .product-card {
+        max-width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+
+
+
+</style>
+
+</head>
+<body>
+
+<div class="top-section">
+
+    <div class="una">
+        <h3>Everpetal</h3>
+       
+    </div>
+
+    <div class="hero">
+        <h1 class="fresh">Fresh Flowers For Every Special Moment.</h1>
+        <p class="hand">Beautiful blooms thoughtfully arranged for the people who matter most.</p>
+    </div>
+
+    <div class="photo">
+        <a href="#" class="card" onclick=" openMotherFlowers(event)()">
+            <img src="../images/flower.jpg">
+            <div class="text">
+                Mother's Day <br> Collection
+            </div>
+        </a>
+    </div>
+
+</div>
+
+<div class="motherflowers" id="motherflowers">
+
+    <span onclick="closeMotherFlowers()" class="close-btn">×</span>
+
+
+
+   
+    <h2>Mother's Day Collection</h2>
+    <p class="motherp"> Celebrate the love and beauty of motherhood with our exquisite Mother's Day Collection. 
+        Each bouquet is thoughtfully crafted to express your heartfelt appreciation and affection 
+        for the special woman in your life.</p>
+
+
+
+        <div class="mother-container">
+
+    <!-- MOTHER FLOWER 1 -->
+    <div class="motherflowers-card" onclick="openProduct(
+        '../images/motherflower1.png',
+        'Blush Melody Bouquet',
+        '₱2,000',
+        'A soft and charming bouquet with blush roses, white daisies, pink carnations, ltw1and delicate fillers wrapped in pastel pink tones. A heartfelt gift to make every mom feel loved and appreciated this Mother’s Day.',
+        'Pink Roses, White Gerbera Daisies, Pink Carnations, Baby’s Breath, Chamomile Fillers'
+    )">
+
+        <img src="../images/motherflower1.png">
+
+        <div class="motherflowers-info">
+            <h4>₱2,000</h4>
+            <p>Blush Melody Bouquet</p>
+        </div>
+    </div>
+
+
+     <!-- MOTHER FLOWER 2 -->
+    <div class="motherflowers-card" onclick="openProduct(
+        '../images/motherflower2.png',
+        'Pink Serenade Bouquet',
+        '₱1,600',
+        'A fresh and elegant bouquet featuring pink gerberas, carnations, and soft fillers wrapped in clean white paper. Perfect for celebrating the warmth, sweetness, and love of every mother.',
+        'Pink Gerbera Daisies, Pink Carnations, Baby’s Breath, Eucalyptus Leaves, Caspia Fillers'
+)">
+
+        <img src="../images/motherflower2.png">
+
+        <div class="motherflowers-info">
+            <h4>₱1,600</h4>
+            <p>Pink Serenade Bouquet</p>
+        </div>
+    </div>
+
+ 
+
+
+
+     <!-- MOTHER FLOWER 3 -->
+    <div class="motherflowers-card" onclick="openProduct(
+        '../images/motherflower3.png',
+        'Crimson Love Bouquet',
+        '₱2,600',
+        'A classic romantic bouquet filled with deep red roses and fresh eucalyptus wrapped in elegant white paper.',
+        'Red Roses, Eucalyptus Leaves, Baby’s Breath Fillers'
+    )">
+
+        <img src="../images/motherflower3.png">
+
+        <div class="motherflowers-info">
+            <h4>₱2,600</h4>
+            <p>Crimson Love Bouquet</p>
+        </div>
+    </div>
+
+
+    
+     <!-- MOTHER FLOWER 4 -->
+    <div class="motherflowers-card" onclick="openProduct(
+        '../images/motherflower4.png',
+        'Sunshine Bloom Bouquet',
+        '₱1,850',
+        'A bright and cheerful hand bouquet with sunflowers, peach roses, pastel blooms, and fresh fillers wrapped in warm nude tones. Perfect for Mother’s Day surprises and heartfelt appreciation.',
+        'Sunflowers, Peach Roses, Pink Lisianthus, Orange Spray Roses, Chamomile Fillers, Eucalyptus'
+    )">
+
+        <img src="../images/motherflower4.png">
+
+        <div class="motherflowers-info">
+            <h4>₱1,850</h4>
+            <p>Sunshine Bloom Bouquet</p>
+        </div>
+    </div>
+            
+
+    
+     <!-- MOTHER FLOWER 5 -->
+    <div class="motherflowers-card" onclick="openProduct(
+        '../images/motherflower5.png',
+        'Golden Love Bouquet',
+        '₱1,950',
+        'A classy and fresh hand bouquet with cream roses, white gerberas, and soft blue accents wrapped in warm yellow tones. A beautiful choice to show love and appreciation this Mother’s Day.',
+        'Cream Roses, White Gerbera Daisies, White Lisianthus, Blue Hydrangeas, Baby’s Breath, Dried Fillers'
+    )">
+
+        <img src="../images/motherflower5.png">
+
+        <div class="motherflowers-info">
+            <h4>₱1,950</h4>
+            <p>Golden Love Bouquet</p>
+        </div>
+    </div>
+
+
+
+     <!-- MOTHER FLOWER 6 -->
+    <div class="motherflowers-card" onclick="openProduct(
+        '../images/motherflower6.png',
+        'Lilac Dream Bouquet',
+        '₱1,750',
+        'A soft and elegant hand bouquet with lilac roses, white carnations, and delicate fillers wrapped in pastel lavender tones. A simple yet charming gift for moms who love gentle colors.',
+        'Lilac Roses, White Carnations, White Matthiola, Pink Statice, White Fillers'
+    )">
+
+        <img src="../images/motherflower6.png">
+
+        <div class="motherflowers-info">
+            <h4>₱1,750</h4>
+            <p>Lilac Dream Bouquet</p>
+        </div>
+    </div>
+
+
+      <!-- MOTHER FLOWER 7 -->
+    <div class="motherflowers-card" onclick="openProduct(
+        '../images/motherflower7.png',
+        'Bloom Grace Bouquet',
+        '₱1,850',
+        'A soft and elegant hand bouquet featuring blush roses, carnations, chrysanthemums, and delicate fillers wrapped in dusty pink tones. Perfect for Mother’s Day surprises and heartfelt appreciation.',
+        'Pink Roses, White Carnations, Purple Carnations, Pink Chrysanthemums, AstilbeEucalyptus'
+    )">
+
+        <img src="../images/motherflower7.png">
+
+        <div class="motherflowers-info">
+            <h4>₱1,850</h4>
+            <p>Bloom Grace Bouquet</p>
+        </div>
+    </div>
+
+
+     <!-- MOTHER FLOWER 8 -->
+    <div class="motherflowers-card" onclick="openProduct(
+        '../images/motherflower8.png',
+        'Sweet Blush Bouquet',
+        '₱1,650',
+        'A charming pink bouquet with roses, gerberas, lisianthus, and playful daisy fillers wrapped in clean neutral tones. A lovely gift for moms who adore soft and cheerful blooms.',
+        'Pink Roses, Pink Gerbera Daisies, Pink Lisianthus, Pink Chrysanthemums, Purple Daisies, Queen Anne’s Lace, Eucalyptus'
+    )">
+
+        <img src="../images/motherflower8.png">
+
+        <div class="motherflowers-info">
+            <h4>₱1,650</h4>
+            <p>Sweet Blush Bouquet</p>
+        </div>
+    </div>
+
+        
+
+ <!-- MOTHER FLOWER 9 -->
+    <div class="motherflowers-card" onclick="openProduct(
+        '../images/motherflower9.png',
+        'Ruby Love Bouquet',
+        '₱1,650',
+        'A romantic hand bouquet with rich red roses, soft pink blooms, and white fillers wrapped in elegant cream tones. A beautiful choice to make Mother’s Day extra special.',
+        'Red Roses, Pink Spray Roses, White Ranunculus, Pink Carnations, White Chrysanthemums, Baby’s Breath, Green Fillers'
+    )">
+
+        <img src="../images/motherflower9.png">
+
+        <div class="motherflowers-info">
+            <h4>₱1,650</h4>
+            <p>Ruby Love Bouquet</p>
+        </div>
+    </div>
+
+    
+
+ <!-- MOTHER FLOWER 10 -->
+    <div class="motherflowers-card" onclick="openProduct(
+        '../images/motherflower10.png',
+        'Crimson Blush Bouquet',
+        '₱1,850',
+        'A romantic and elegant hand bouquet with rich red spray roses, soft pink roses, cream blooms, and delicate dried fillers wrapped in warm nude tones. Perfect for heartfelt Mother’s Day surprises and timeless appreciation.',
+        'Red Spray Roses, Pink Roses, White Lisianthus, White Carnations, Dried Fillers, Eucalyptus Fillers'
+    )">
+
+        <img src="../images/motherflower10.png">
+
+        <div class="motherflowers-info">
+            <h4>₱1,850</h4>
+            <p>Crimson Blush Bouquet</p>
+        </div>
+
+    </div>
+                    
+</div>
+                                
+</div>
+
+
+<!-- PRODUCT POPUP -->
+<div class="product-popup" id="productPopup">
+
+    <span class="popup-close" onclick="closeProduct()">×</span>
+
+    <div class="popup-content">
+
+        
+
+        <!-- LEFT -->
+        <div class="popup-left">
+            <img id="popup-img">
+        </div>
+
+        <!-- RIGHT -->
+        <div class="popup-right">
+
+            <h2 id="popup-title"></h2>
+
+            <h3 id="popup-price"></h3>
+
+            <p id="popup-description"></p>
+
+            <div class="popup-section">
+                <h4>Flowers</h4>
+                <p id="popup-flowers"></p>
+            </div>
+
+            <button class="buy-btn" onclick="buyNow()">
+                    Buy Now
+            </button>
+            
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- checkout page -->
+
+   <div class="checkout-popup" id="checkoutPopup">
+
+    <div class="checkout-box">
+
+        <span class="close-checkout" onclick="closeCheckout()">×</span>
+
+        <!-- CHECKOUT CONTENT MO DITO -->
+        <div class="checkout-page">
+
+            <h2> Checkout Details</h2>
+            <p> Customer Name: <input type="text" class="name-input"></p>
+            <p> Contact Number: <input type="text" class="contact-input"></p>
+            <p> Delivery Address: <input type="text" class="address-input"></p>
+            <p> Delivery Date & Time: <input type="datetime-local" class="date-input"></p>
+
+            <p> Add a message for the recipient (optional): </p>
+            <textarea class="message-box"></textarea>
+
+            <div class="payment-option">
+
+   <div class="cod">
+        <input type="radio" name="payment">
+        
+        <span>Cash on Delivery</span>
+    </div>
+
+   
+
+
+</div>
+
+            <p>Quantity:</p>
+        <input type="number" value="1" min="1" class="qty-input" oninput="updateTotal()">
+        <h3>Subtotal: ₱<span id="subtotal">0</span></h3>
+        <h3>Shipping Fee: ₱<span id="shipping">150</span></h3>
+        <h2>Total Purchase: ₱<span id="totalPrice">0</span></h2>
+
+            <button class="confirm-btn" onclick="confirmPurchase()">
+                Confirm Purchase
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="next-section">
+    <h2>Our Collection</h2>
+    <p>
+        Explore our wide range of handcrafted flower arrangements designed for every special occasion. 
+        From romantic roses to elegant bouquets, we have something perfect for you.
+    </p>
+</div>
+
+<h2 class="top">Top Seller</h2>
+
+<div class="top-container">
+
+    <!-- FLOWER 1 -->
+    <div class="top-card" onclick="openProduct(
+        '../images/flower1.jpg',
+        'Tulip Bliss Bouquet',
+        '₱2,500',
+        'A soft and elegant bouquet featuring delicate pink tulips paired with clouds of baby’s breath. Wrapped in blush pink tones for a clean and classy look, this arrangement gives a calm, sweet, and gentle vibe.',
+        'Pink Tulips, White Tulips, Baby’s Breath (Gypsophila)',
+    )">
+
+        <img src="../images/flower1.jpg">
+
+        <div class="top-info">
+            <h4>₱2,500</h4>
+            <p>Tulip Bliss Bouquet</p>
+        </div>
+    </div>
+
+
+    <!-- FLOWER 2 -->
+    <div class="top-card" onclick="openProduct(
+        '../images/flower2.jpg',
+        'Golden Garden Bouquet',
+        '₱2,750',
+        'A vibrant hand bouquet filled with cheerful sunflowers and colorful blooms that instantly brighten the mood. Its warm earthy wrap and lively mix of flowers make it feel joyful, heartfelt, and full of sunshine.',
+        'Sunflowers, Gerbera Daisies, Roses, Carnations, Baby’s Breath, Snapdragons')">
+
+        <img src="../images/flower2.jpg">
+
+        <div class="top-info">
+            <h4>₱2,750</h4>
+            <p>Golden Garden Bouquet</p>
+        </div>
+    </div>
+
+    <!-- FLOWER 3 -->
+    <div class="top-card" onclick="openProduct(
+        '../images/flower3.jpg',
+        'Pink Dream Bouquet',
+        '₱2,500',
+        'A romantic and dreamy bouquet bursting with shades of pink, lavender, and white. The soft pastel tones and layered flowers create a luxurious, feminine, and charming arrangement perfect for special occasions.',
+        'Pink Roses, Gerbera Daisies, Lisianthus, Carnations, Chrysanthemums, Asters, Baby’s Breath, Snapdragons',
+         )">
+
+        <img src="../images/flower3.jpg">
+
+        <div class="top-info">
+            <h4>₱2,500</h4>
+            <p>Pink Dream Bouquet</p>
+        </div>
+    </div>
+
+    <!-- FLOWER 4 -->
+    <div class="top-card" onclick="openProduct(
+        '../images/flower4.jpg',
+        'Vintage Rose Garden',
+        '₱1,500',
+        'A classy vintage-inspired bouquet with soft pink roses, tulips, lisianthus, and charming daisy fillers wrapped in nude pink paper. Elegant, feminine, and timeless for any special occasion.',
+        'Pink Roses, Tulips, Lisianthus, Chamomile/Daisy Fillers, Carnations (spray type), Filler Flowers & Greenery',
+        )">
+
+        <img src="../images/flower4.jpg">
+
+        <div class="top-info">
+            <h4>₱1,500</h4>
+            <p>Vintage Rose Garden</p>
+        </div>
+    </div>
+
+    <!-- FLOWER 5 -->
+    <div class="top-card" onclick="openProduct(
+        '../images/flower5.jpg',
+        'Pink Serenity Bouquet',
+        '₱1,500',
+        'A sweet and romantic hand bouquet with blush roses, pink gerberas, carnations, and dainty fillers wrapped in soft pink tones. A lovely choice for anniversaries, surprises, and heartfelt gifts.',
+        'Pink Roses, Pink Gerbera Daisies, Carnations, Purple Asters',)">
+
+        <img src="../images/flower5.jpg">
+
+        <div class="top-info">
+            <h4>₱1,500</h4>
+            <p>Pink Serenity Bouquet</p>
+        </div>
+    </div>
+
+    <!-- FLOWER 6 -->
+    <div class="top-card" onclick="openProduct(
+        '../images/flower6.jpg',
+        'Golden Blush Bouquet',
+        '₱1,500',
+        'A cheerful pastel bouquet featuring soft pink carnations, vibrant yellow tulips, and delicate baby’s breath. Perfect for birthdays, graduations, or simply brightening someone’s day with a fresh and elegant touch.',
+        'Pink Carnations, Yellow Tulips,Baby’s Breath (Gypsophila)',)">
+
+        <img src="../images/flower6.jpg">
+
+        <div class="top-info">
+            <h4>₱1,500</h4>
+            <p>Golden Blush Bouquet</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- PRODUCT POPUP -->
+<div class="product-popup" id="productPopup">
+
+    <span class="popup-close" onclick="closeProduct()">×</span>
+
+    <div class="popup-content">
+
+        
+
+        <!-- LEFT -->
+        <div class="popup-left">
+            <img id="popup-img">
+        </div>
+
+        <!-- RIGHT -->
+        <div class="popup-right">
+
+            <h2 id="popup-title"></h2>
+
+            <h3 id="popup-price"></h3>
+
+            <p id="popup-description"></p>
+
+            <div class="popup-section">
+                <h4>Flowers</h4>
+                <p id="popup-flowers"></p>
+            </div>
+
+            <button class="buy-btn" onclick="buyNow()">
+                    Buy Now
+            </button>
+            
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- checkout page -->
+
+   <div class="checkout-popup" id="checkoutPopup">
+
+    <div class="checkout-box">
+
+        <span class="close-checkout" onclick="closeCheckout()">×</span>
+
+        <!-- CHECKOUT CONTENT MO DITO -->
+        <div class="checkout-page">
+
+            <h2> Checkout Details</h2>
+            <p> Customer Name: <input type="text" class="name-input"></p>
+            <p> Contact Number: <input type="text" class="contact-input"></p>
+            <p> Delivery Address: <input type="text" class="address-input"></p>
+            <p> Delivery Date & Time: <input type="datetime-local" class="date-input"></p>
+
+            <p> Add a message for the recipient (optional): </p>
+            <textarea class="message-box"></textarea>
+
+            <div class="payment-option">
+
+   <div class="cod">
+        <input type="radio" name="payment">
+        
+        <span>Cash on Delivery</span>
+    </div>
+
+    
+
+</div>
+
+            <p>Quantity:</p>
+        <input type="number" value="1" min="1" class="qty-input" oninput="updateTotal()">
+        <h3>Subtotal: ₱<span id="subtotal">0</span></h3>
+        <h3>Shipping Fee: ₱<span id="shipping">150</span></h3>
+        <h2>Total Purchase: ₱<span id="totalPrice">0</span></h2>
+
+            <button class="confirm-btn" onclick="confirmPurchase()">
+                Confirm Purchase
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<hr>
+
+
+
+<h2 class="shopincat"> Shop in Categories</h2>
+
+<div class="category-container">
+
+
+<div class="valenphoto">
+        <a href="#" class="vcard" onclick=" openValentineCard(event)()">
+             <img src="../images/vdayphoto.jpg">
+            <div class="text">
+                Valentine's <br> Selection
+            </div>
+        </a>
+    </div>
+
+
+    <div class="valentineflowers" id="valentinecard">
+
+        <span onclick="closeValentineCard()" class="close-btn">×</span>
+
+        <h2>Valentine's Day Collection</h2>
+        <p class="vdayp"> Celebrate the love and romance of Valentine's Day with our stunning collection of floral arrangements. 
+            Each bouquet is designed to convey your deepest feelings and make this Valentine's Day truly special.</p>
+
+            <div class="valentineflowers-container">
+
+            
+                
+    <!-- VALENTINE FLOWER 1 -->
+    <div class="valentineflowers-card" onclick="openProduct(
+        '../images/vflower1.png',
+        'Pink Bliss Bouquet',
+        '₱1,399',
+        'A sweet and romantic hand bouquet with blush roses, pink gerberas, carnations, and dainty fillers wrapped in soft pink tones. A lovely choice for anniversaries and surprises.',
+        'Pink Roses, Pink Gerbera Daisies, Carnations, Purple Asters, Chamomile/Daisy Fillers'
+    )">
+
+        <img src="../images/vflower1.png">
+
+        <div class="valentineflowers-info">
+            <h4>₱1,399</h4>
+            <p>Pink Bliss Bouquet</p>
+        </div>
+    </div>
+
+            
+            
+            <!-- VALENTINE FLOWER 2 -->
+    <div class="valentineflowers-card" onclick="openProduct(
+        '../images/vflowers2.png',
+        'Red Devotion Bouquet',
+        '₱1,599',
+        'A classic bouquet of deep red roses with baby’s breath and greenery wrapped in elegant black and red. Perfect for heartfelt love confessions.',
+        'Red Roses, Baby’s Breath, Red Hypericum Berries, Eucalyptus'
+    )">
+
+        <img src="../images/vflowers2.png">
+
+        <div class="valentineflowers-info">
+            <h4>₱1,599</h4>
+            <p>Red Devotion Bouquet</p>
+        </div>
+    </div>
+
+ 
+            <!-- VALENTINE FLOWER 3 -->
+    <div class="valentineflowers-card" onclick="openProduct(
+        '../images/vflower33.png',
+        'Bliss Tulips Bouquet',
+        '₱1,499',
+        'A fresh and elegant tulip bouquet in soft pink and white shades with purple fillers. Simple, neat, and charming.',
+        'Pink Tulips, White Tulips, Purple Statice, Baby’s Breath'
+    )">
+
+        <img src="../images/vflower33.png">
+
+        <div class="valentineflowers-info">
+            <h4>₱1,499</h4>
+            <p>Bliss Tulips Bouquet</p>
+        </div>
+    </div>
+    
+
+
+    
+    <!-- VALENTINE FLOWER 4 -->
+    <div class="valentineflowers-card" onclick="openProduct(
+        '../images/vflower4.png',
+        'Love Story Bouquet',
+        '₱1,699',
+        'A romantic mix of red roses, pink lilies, and carnations wrapped beautifully in pink and red tones. Sweet and full of love.',
+        'Red Roses, Pink Lilies, Pink Carnations, Baby’s Breath, Ruscus/Greenery'
+    )">
+
+        <img src="../images/vflower4.png">
+
+        <div class="valentineflowers-info">
+            <h4>₱1,699</h4>
+            <p>Love Story Bouquet</p>
+        </div>
+    </div>
+
+
+    
+    <!-- VALENTINE FLOWER 5 -->
+    <div class="valentineflowers-card" onclick="openProduct(
+        '../images/vflower5.png',
+        'Sweetheart Bouquet',
+        '₱1,299',
+        'A soft and cheerful bouquet with blush roses, daisies, and baby’s breath wrapped in pastel pink. Cute and perfect for Valentine gifts.',
+        'Blush Roses, Spray Roses (Peach), White Daisies, Baby’s Breath'
+    )">
+
+        <img src="../images/vflower5.png">
+
+        <div class="valentineflowers-info">
+            <h4>₱1,299</h4>
+            <p>Sweetheart Bouquet</p>
+        </div>
+    </div>
+
+
+    <!-- VALENTINE FLOWER 6 -->
+    <div class="valentineflowers-card" onclick="openProduct(
+        '../images/vflower6.png',
+        'Romantic Red Bouquet',
+        '₱1,799',
+        'A bold bouquet of red roses with chocolates in the center wrapped in sleek black and red. A perfect grand surprise for someone special.',
+        'Red Roses, Ferrero Rochers, Baby’s Breath, Eucalyptus'
+    )">
+
+        <img src="../images/vflower6.png">
+
+        <div class="valentineflowers-info">
+            <h4>₱1,799</h4>
+            <p>Romantic Red Bouquet</p>
+        </div>
+    </div>
+
+
+
+
+    <!-- VALENTINE FLOWER 7 -->
+    <div class="valentineflowers-card" onclick="openProduct(
+        '../images/vflower77.png',
+        'Velvet Love Bouquet',
+        '₱1,599',
+        'A soft blend of pink roses, purple asters, and carnations wrapped in light pink tones. Sweet, gentle, and full of affection.',
+        'Pink Roses, Purple Asters, Pink Carnations, White Statice, Daisy Fillers'
+    )">
+
+        <img src="../images/vflower77.png">
+
+        <div class="valentineflowers-info">
+            <h4>₱1,599</h4>
+            <p>Velvet Love Bouquet</p>
+        </div>
+    </div>
+
+
+    
+    <!-- VALENTINE FLOWER 8 -->
+    <div class="valentineflowers-card" onclick="openProduct(
+        '../images/vflower8.png',
+        'Classic Rose Bouquet',
+        '₱1,299',
+        'A timeless bouquet of red roses with baby’s breath wrapped in elegant red. Simple, classic, and always meaningful.',
+        'Red Roses, Baby’s Breath, Green Leaves'
+    )">
+
+        <img src="../images/vflower8.png">
+
+        <div class="valentineflowers-info">
+            <h4>₱1,299</h4>
+            <p>Classic Rose Bouquet</p>
+        </div>
+    </div>
+
+
+
+    
+    <!-- VALENTINE FLOWER 9 -->
+    <div class="valentineflowers-card" onclick="openProduct(
+        '../images/vflower9.png',
+        'Vibrant Love Bouquet',
+        '₱1,499',
+        'A bright and colorful bouquet with gerberas, roses, and carnations wrapped in pink. Cheerful and full of joy.',
+        'Pink Gerbera Daisies, Red Roses, Pink Carnations, Purple Statice'
+    )">
+
+        <img src="../images/vflower9.png">
+
+        <div class="valentineflowers-info">
+            <h4>₱1,499</h4>
+            <p>Vibrant Love Bouquet</p>
+        </div>
+    </div>
+
+    </div>
+
+    </div>
+
+    
+
+<!-- PRODUCT POPUP -->
+<div class="product-popup" id="productPopup">
+
+    <span class="popup-close" onclick="closeProduct()">×</span>
+
+    <div class="popup-content">
+
+        
+
+        <!-- LEFT -->
+        <div class="popup-left">
+            <img id="popup-img">
+        </div>
+
+        <!-- RIGHT -->
+        <div class="popup-right">
+
+            <h2 id="popup-title"></h2>
+
+            <h3 id="popup-price"></h3>
+
+            <p id="popup-description"></p>
+
+            <div class="popup-section">
+                <h4>Flowers</h4>
+                <p id="popup-flowers"></p>
+            </div>
+
+            <button class="buy-btn" onclick="buyNow()">
+                    Buy Now
+            </button>
+            
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- checkout page -->
+
+   <div class="checkout-popup" id="checkoutPopup">
+
+    <div class="checkout-box">
+
+        <span class="close-checkout" onclick="closeCheckout()">×</span>
+
+        <!-- CHECKOUT CONTENT MO DITO -->
+        <div class="checkout-page">
+
+            <h2> Checkout Details</h2>
+            <p> Customer Name: <input type="text" class="name-input"></p>
+            <p> Contact Number: <input type="text" class="contact-input"></p>
+            <p> Delivery Address: <input type="text" class="address-input"></p>
+            <p> Delivery Date & Time: <input type="datetime-local" class="date-input"></p>
+
+            <p> Add a message for the recipient (optional): </p>
+            <textarea class="message-box"></textarea>
+
+            <div class="payment-option">
+
+   <div class="cod">
+        <input type="radio" name="payment">
+        
+        <span>Cash on Delivery</span>
+    </div>
+
+   
+
+
+</div>
+
+            <p>Quantity:</p>
+        <input type="number" value="1" min="1" class="qty-input" oninput="updateTotal()">
+        <h3>Subtotal: ₱<span id="subtotal">0</span></h3>
+        <h3>Shipping Fee: ₱<span id="shipping">150</span></h3>
+        <h2>Total Purchase: ₱<span id="totalPrice">0</span></h2>
+
+            <button class="confirm-btn" onclick="confirmPurchase()">
+                Confirm Purchase
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="gradphoto">
+        <a href="#" class="gcard" onclick=" openGraduationCard(event)()">
+             <img src="../images/gradpic.jpg">
+            <div class="text">
+                Graduation <br> Selection
+            </div>
+        </a>
+    </div>
+
+
+    <div class="gradflowers" id="gradcard">
+
+        <span onclick="closeGraduationCard()" class="close-btn">×</span>
+
+        <h2>Graduation Collection</h2>
+        <p class="gradp"> Celebrate the achievements and milestones of graduation with our stunning collection of floral arrangements. 
+            Each bouquet is designed to honor the hard work and dedication of graduates, making their special day even more memorable.</p>
+
+            <div class="gradflowers-container">
+
+            
+                
+    <!--GRAD FLOWER 1 -->
+    <div class="gradflowers-card" onclick="openProduct(
+        '../images/grad1.png',
+        'Red Rose Bouquet',
+        '₱1,399',
+        'Symbolizes love, pride, and achievement. Perfect for graduation celebrations.',
+        'Red roses, Baby’s breath, Eucalyptus'
+    )">
+
+        <img src="../images/grad1.png">
+
+        <div class="gradflowers-info">
+            <h4>₱1,500</h4>
+            <p>Red Rose Bouquet</p>
+        </div>
+    </div>
+
+
+            
+     <!--GRAD FLOWER 2 -->
+    <div class="gradflowers-card" onclick="openProduct(
+        '../images/grad2.png',
+        'Yellow Sunflower Bouquet',
+        '₱1,399',
+        'Bright and cheerful bouquet that represents happiness and success. Perfect for celebrating graduation achievements.',
+        'Yellow sunflowers, White fillers, Green leaves'
+    )">
+
+        <img src="../images/grad2.png">
+
+        <div class="gradflowers-info">
+            <h4>₱1,500</h4>
+            <p>Yellow Sunflower Bouquet</p>
+        </div>
+    </div>
+            
+
+        
+     <!--GRAD FLOWER 3 -->
+    <div class="gradflowers-card" onclick="openProduct(
+        '../images/grad3.png',
+        'White Lily Bouquet',
+        '₱1,699',
+        'Elegant bouquet symbolizing purity, hope, and a bright future. Perfect for congratulating graduates on their accomplishments.',
+        'White lilies, Greenery, Baby’s breath'
+    )">
+
+        <img src="../images/grad3.png">
+
+        <div class="gradflowers-info">
+            <h4>₱1,699</h4>
+            <p>White Lily Bouquet</p>
+        </div>
+    </div>
+
+
+       
+     <!--GRAD FLOWER 4 -->
+    <div class="gradflowers-card" onclick="openProduct(
+        '../images/grad4.png',
+        'Pink Carnation Bouquet',
+        '₱1,299',
+        'Soft and sweet bouquet expressing admiration and gratitude. Perfect for showing appreciation to graduates for their hard work and dedication.',
+        'Pink carnations, Baby’s breath, Fern leaves'
+    )">
+
+        <img src="../images/grad4.png">
+
+        <div class="gradflowers-info">
+            <h4>₱1,299</h4>
+            <p>Pink Carnation Bouquet</p>
+        </div>
+    </div>
+
+
+
+    
+     <!--GRAD FLOWER 5 -->
+    <div class="gradflowers-card" onclick="openProduct(
+        '../images/grad5.png',
+        'White Tulip Bouquet',
+        '₱1,700',
+        'Simple yet classy bouquet symbolizing new beginnings and success. Perfect for showing appreciation to graduates for their hard work and dedication.',
+        'White tulips, Eucalyptus leaves'
+    )">
+
+        <img src="../images/grad5.png">
+
+        <div class="gradflowers-info">
+            <h4>₱1,700</h4>
+            <p>White Tulip Bouquet</p>
+        </div>
+    </div>
+
+
+    
+    
+     <!--GRAD FLOWER 6 -->
+    <div class="gradflowers-card" onclick="openProduct(
+        '../images/grad6.png',
+        'Blue Hydrangea Bouquet',
+        '₱1,800',
+        'Full and eye-catching bouquet representing gratitude and heartfelt emotions. Perfect for showing appreciation to graduates for their hard work and dedication.',
+        'Blue hydrangeas, Baby’s breath, Green leaves'
+    )">
+
+        <img src="../images/grad6.png">
+
+        <div class="gradflowers-info">
+            <h4>₱1,800</h4>
+            <p>Blue Hydrangea Bouquet</p>
+        </div>
+    </div>
+
+
+
+     <!--GRAD FLOWER 7 -->
+    <div class="gradflowers-card" onclick="openProduct(
+        '../images/grad7.png',
+        'Purple Statice Bouquet',
+        '₱1,500',
+        'Long-lasting bouquet that symbolizes remembrance and achievement. Perfect for showing appreciation to graduates for their hard work and dedication.',
+        'Purple statice, White fillers, Green leaves'
+    )">
+
+        <img src="../images/grad7.png">
+
+        <div class="gradflowers-info">
+            <h4>₱1,500</h4>
+            <p>Purple Statice Bouquet</p>
+        </div>
+    </div>
+
+
+
+
+
+     <!--GRAD FLOWER 8 -->
+    <div class="gradflowers-card" onclick="openProduct(
+        '../images/gead8.png',
+        'Pink Gerbera Bouquet',
+        '₱1,500',
+        'Long-lasting bouquet that symbolizes remembrance and achievement. Perfect for showing appreciation to graduates for their hard work and dedication.',
+        'Pink Gerbera Daisies, Baby’s breath, Green leaves'
+    )">
+
+        <img src="../images/gead8.png">
+
+        <div class="gradflowers-info">
+            <h4>₱1,500</h4>
+            <p>Pink Gerbera Bouquet</p>
+        </div>
+    </div>
+
+
+    
+     <!--GRAD FLOWER 9 -->
+    <div class="gradflowers-card" onclick="openProduct(
+        '../images/grad9.png',
+        'White Daisy Bouquet',
+        '₱1,600',
+        'Long-lasting bouquet that symbolizes remembrance and achievement. Perfect for showing appreciation to graduates for their hard work and dedication.',
+        'White Daisy, Eucalyptus, Green leaves'
+    )">
+
+        <img src="../images/grad9.png">
+
+        <div class="gradflowers-info">
+            <h4>₱1,600</h4>
+            <p>White Daisy Bouquet</p>
+        </div>
+    </div>
+
+
+    
+     <!--GRAD FLOWER 10 -->
+    <div class="gradflowers-card" onclick="openProduct(
+        '../images/grad10.png',
+        'Mixed Peony Bouquet',
+        '₱2,000',
+        'Long-lasting bouquet that symbolizes remembrance and achievement. Perfect for showing appreciation to graduates for their hard work and dedication.',
+        'Peonies, Roses, Baby’s breath, Green leaves'
+    )">
+
+        <img src="../images/grad10.png">
+
+        <div class="gradflowers-info">
+            <h4>₱2,000</h4>
+            <p>Mixed Peony Bouquet</p>
+        </div>
+    </div>
+
+
+
+
+
+    </div>
+
+    </div>
+
+    
+
+<!-- PRODUCT POPUP -->
+<div class="product-popup" id="productPopup">
+
+    <span class="popup-close" onclick="closeProduct()">×</span>
+
+    <div class="popup-content">
+
+        
+
+        <!-- LEFT -->
+        <div class="popup-left">
+            <img id="popup-img">
+        </div>
+
+        <!-- RIGHT -->
+        <div class="popup-right">
+
+            <h2 id="popup-title"></h2>
+
+            <h3 id="popup-price"></h3>
+
+            <p id="popup-description"></p>
+
+            <div class="popup-section">
+                <h4>Flowers</h4>
+                <p id="popup-flowers"></p>
+            </div>
+
+            <button class="buy-btn" onclick="buyNow()">
+                    Buy Now
+            </button>
+            
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- checkout page -->
+
+   <div class="checkout-popup" id="checkoutPopup">
+
+    <div class="checkout-box">
+
+        <span class="close-checkout" onclick="closeCheckout()">×</span>
+
+        <!-- CHECKOUT CONTENT MO DITO -->
+        <div class="checkout-page">
+
+            <h2> Checkout Details</h2>
+            <p> Customer Name: <input type="text" class="name-input"></p>
+            <p> Contact Number: <input type="text" class="contact-input"></p>
+            <p> Delivery Address: <input type="text" class="address-input"></p>
+            <p> Delivery Date & Time: <input type="datetime-local" class="date-input"></p>
+
+            <p> Add a message for the recipient (optional): </p>
+            <textarea class="message-box"></textarea>
+
+            <div class="payment-option">
+
+   <div class="cod">
+        <input type="radio" name="payment">
+        
+        <span>Cash on Delivery</span>
+    </div>
+
+    
+
+
+</div>
+
+            <p>Quantity:</p>
+        <input type="number" value="1" min="1" class="qty-input" oninput="updateTotal()">
+        <h3>Subtotal: ₱<span id="subtotal">0</span></h3>
+        <h3>Shipping Fee: ₱<span id="shipping">150</span></h3>
+        <h2>Total Purchase: ₱<span id="totalPrice">0</span></h2>
+
+            <button class="confirm-btn" onclick="confirmPurchase()">
+                Confirm Purchase
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<div class="sympathyphoto">
+        <a href="#" class="scard" onclick=" openSympathyCard(event)()">
+             <img src="../images/symp.jpg">
+            <div class="text">
+                Sympathy <br> Selection
+            </div>
+        </a>
+    </div>
+
+
+
+    <div class="sympathyflowers" id="sympathycard">
+
+        <span onclick="closeSympathyCard()" class="close-btn">×</span>
+
+        <h2>Sympathy Collection</h2>
+        <p class="sympathyp"> Express your condolences and support with our heartfelt collection of sympathy floral arrangements.
+            Each bouquet is thoughtfully designed to convey comfort, love, and remembrance during difficult times.</p>
+       
+
+            <div class="sympathyflowers-container">
+
+            
+                
+    <!--SYMPATHY FLOWER 1  -->
+    <div class="sympathyflowers-card" onclick="openProduct(
+        '../images/sympathy1.png',
+        'White Fillers Bouquet',
+        '₱799',
+        'Camille and daisy fillers represent peace, innocence, and comfort, adding a gentle touch of love and remembrance to the tribute.',
+        'White Roses and Mums'
+    )">
+
+        <img src="../images/sympathy1.png">
+
+        <div class="sympathyflowers-info">
+            <h4>₱799</h4>
+            <p>White Fillers Bouquet</p>
+        </div>
+    </div>
+
+
+
+<!-- SYMPATHY FLOWER 2 -->
+    <div class="sympathyflowers-card" onclick="openProduct(
+        '../images/sympathy2.png',
+        'Heart Rose Bouquet',
+        '₱1,599',
+        'A heart-shaped arrangement of pink roses that symbolizes love, remembrance, and a heartfelt farewell for someone deeply cherished.',
+        'Pink Rose, Daisy, and Carnation'
+    )">
+
+        <img src="../images/sympathy2.png">
+
+        <div class="sympathyflowers-info">
+            <h4>₱1,599</h4>
+            <p>Heart Rose Bouquet</p>
+        </div>
+    </div>
+
+
+
+
+<!-- SYMPATHY FLOWER 3 -->
+    <div class="sympathyflowers-card" onclick="openProduct(
+        '../images/sympathy3.png',
+        'Pink Gerbera Bouquet',
+        '₱2,199',
+        'Pink gerberas symbolize love, comfort, and remembrance, offering a gentle tribute to someone who will always be missed..',
+        'Pink Roses and Gerbera'
+    )">
+
+        <img src="../images/sympathy3.png">
+
+        <div class="sympathyflowers-info">
+            <h4>₱2,199</h4>
+            <p>Pink Gerbera Bouquet</p>
+        </div>
+    </div>
+
+
+
+
+<!-- SYMPATHY FLOWER 4 -->
+    <div class="sympathyflowers-card" onclick="openProduct(
+        '../images/sympathy4.png',
+        'Purple Asters Bouquet',
+        '₱2,999',
+        'A Purple asters symbolize remembrance, peace, and deep sympathy, honoring the memory of a loved one with grace and respect.',
+        'Asters and Stargazer'
+    )">
+
+        <img src="../images/sympathy4.png">
+
+        <div class="sympathyflowers-info">
+            <h4>₱2,999</h4>
+            <p>Purple Asters Bouquet</p>
+        </div>
+    </div>
+
+
+
+<!-- SYMPATHY FLOWER 5 -->
+    <div class="sympathyflowers-card" onclick="openProduct(
+        '../images/sympathy5.png',
+        'Pink Carnation Bouquet',
+        '₱1,599',
+        ' Pink carnations symbolize remembrance, love, and gratitude. Their soft beauty expresses a heartfelt farewell and honors the memory of someone who brought love, warmth, and happiness to the lives of others.',
+        'Carnation and Gardenia'
+    )">
+
+        <img src="../images/sympathy5.png">
+
+        <div class="sympathyflowers-info">
+            <h4>₱1,599</h4>
+            <p>Pink Carnation Bouquet</p>
+        </div>
+    </div>
+
+
+    <!-- SYMPATHY FLOWER 6 -->
+    <div class="sympathyflowers-card" onclick="openProduct(
+        '../images/sympathy6.png',
+        'Single Gazer Bouquet',
+        '₱799',
+        'A single stargazer flower symbolizes everlasting love, peace, and heartfelt remembrance. Its elegant beauty reflects the deep emotions of loss while honoring the life, memories, and love shared with someone who will always hold a special place in the hearts of many.',
+        'Stargazer, Gardenia, and White Roses'
+    )">
+
+        <img src="../images/sympathy6.png">
+
+        <div class="sympathyflowers-info">
+            <h4>₱799</h4>
+            <p>Single Gazer Bouquet</p>
+        </div>
+    </div>
+
+
+
+<!-- SYMPATHY FLOWER 7 -->
+    <div class="sympathyflowers-card" onclick="openProduct(
+        '../images/sympathy7.png',
+        'White Rose Bouquet',
+        '₱4,899',
+        ' White roses symbolize peace, purity, and everlasting love. Their timeless beauty offers a heartfelt farewell, honoring a cherished life and the memories that will remain forever in the hearts of loved ones.',
+        'Mums, White Rose, and Carnation'
+    )">
+
+        <img src="../images/sympathy7.png">
+
+        <div class="sympathyflowers-info">
+            <h4>₱4,899</h4>
+            <p>White Rose Bouquet</p>
+        </div>
+    </div>
+
+
+
+<!-- SYMPATHY FLOWER 8 -->
+    <div class="sympathyflowers-card" onclick="openProduct(
+        '../images/sympathy8.png',
+        'White Gerbera Bouquet',
+        '₱2,598',
+        'A White gerberas symbolize pure remembrance, innocence, and peaceful farewell. Their simple elegance reflects a sincere tribute to a loved one, offering comfort and honoring a life gently held in memory.',
+        'White Rose, Mums and Carnation'
+    )">
+
+        <img src="../images/sympathy8.png">
+
+        <div class="sympathyflowers-info">
+            <h4>₱2,598</h4>
+            <p>White Gerbera Bouquet</p>
+        </div>
+    </div>
+
+
+
+<!-- SYMPATHY FLOWER 9 -->
+    <div class="sympathyflowers-card" onclick="openProduct(
+        '../images/sympathy9.png',
+        'Multiple Gazer Bouquet',
+        '₱6,799',
+        'A arrangement of multiple stargazer lilies makes a striking and meaningful funeral tribute. Known for symbolizing love, honor, and remembrance, each bloom adds depth and elegance, creating a powerful expression of sympathy. Its bold yet graceful presence offers comfort while beautifully honoring a cherished life.',
+        'Stargazer, White Rose, and mums'
+    )">
+
+        <img src="../images/sympathy9.png">
+
+        <div class="sympathyflowers-info">
+            <h4>₱6,799</h4>
+            <p>Multiple Gazer Bouquet</p>
+        </div>
+    </div>
+
+
+
+<!-- SYMPATHY FLOWER 10 -->
+    <div class="sympathyflowers-card" onclick="openProduct(
+        '../images/sympathy10.png',
+        'Mix White Bouquet',
+        '₱2,799',
+        'A mix of white flowers symbolizes peace, purity, and remembrance. Its soft and elegant look offers a simple yet meaningful tribute, honoring a loved one with respect and comfort during a time of loss.',
+        'Stargazer, Gerbera, and White Roses'
+    )">
+
+        <img src="../images/sympathy10.png">
+
+        <div class="sympathyflowers-info">
+            <h4>₱2,799</h4>
+            <p>Mix White Bouquet</p>
+        </div>
+    </div>
+
+            
+  
+
+
+
+
+    </div>
+
+    </div>
+
+    
+
+<!-- PRODUCT POPUP -->
+<div class="product-popup" id="productPopup">
+
+    <span class="popup-close" onclick="closeProduct()">×</span>
+
+    <div class="popup-content">
+
+        
+
+        <!-- LEFT -->
+        <div class="popup-left">
+            <img id="popup-img">
+        </div>
+
+        <!-- RIGHT -->
+        <div class="popup-right">
+
+            <h2 id="popup-title"></h2>
+
+            <h3 id="popup-price"></h3>
+
+            <p id="popup-description"></p>
+
+            <div class="popup-section">
+                <h4>Flowers</h4>
+                <p id="popup-flowers"></p>
+            </div>
+
+            <button class="buy-btn" onclick="buyNow()">
+                    Buy Now
+            </button>
+            
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- checkout page -->
+
+   <div class="checkout-popup" id="checkoutPopup">
+
+    <div class="checkout-box">
+
+        <span class="close-checkout" onclick="closeCheckout()">×</span>
+
+        <!-- CHECKOUT CONTENT MO DITO -->
+        <div class="checkout-page">
+
+            <h2> Checkout Details</h2>
+            <p> Customer Name: <input type="text" class="name-input"></p>
+            <p> Contact Number: <input type="text" class="contact-input"></p>
+            <p> Delivery Address: <input type="text" class="address-input"></p>
+            <p> Delivery Date & Time: <input type="datetime-local" class="date-input"></p>
+
+            <p> Add a message for the recipient (optional): </p>
+            <textarea class="message-box"></textarea>
+
+            <div class="payment-option">
+
+   <div class="cod">
+        <input type="radio" name="payment">
+        
+        <span>Cash on Delivery</span>
+    </div>
+
+
+
+</div>
+
+            <p>Quantity:</p>
+        <input type="number" value="1" min="1" class="qty-input" oninput="updateTotal()">
+        <h3>Subtotal: ₱<span id="subtotal">0</span></h3>
+        <h3>Shipping Fee: ₱<span id="shipping">150</span></h3>
+        <h2>Total Purchase: ₱<span id="totalPrice">0</span></h2>
+
+            <button class="confirm-btn" onclick="confirmPurchase()">
+                Confirm Purchase
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    
+<div class="anniversaryphoto">
+        <a href="#" class="acard" onclick=" openAnniversaryCard(event)()">
+             <img src="../images/annivphoto.jpg">
+            <div class="text">
+                Anniversary <br> Selection
+            </div>
+        </a>
+    </div>
+
+
+
+    
+    <div class="anniversaryflowers" id="anniversarycard">
+
+        <span onclick="closeAnniversaryCard()" class="close-btn">×</span>
+
+        <h2>Anniversary Collection</h2>
+        <p class="anniversayp"> Celebrate the love and commitment of anniversaries with our stunning collection of floral arrangements.
+            Each bouquet is thoughtfully designed to convey romance, appreciation, and the beauty of enduring love on this special occasion.</p>
+
+            <div class="anniversaryflowers-container">
+
+            
+   <!--Anniversaries FLOWER 1 -->
+   <div class="anniversaryflowers-card" onclick="openProduct(
+       '../images/anniv1.png',
+       'Scarlet Devotion Bouquet',
+       '₱2,899',
+       'Rich, velvety red roses blend beautifully with soft baby’s breath and fresh greenery, creating a timeless symbol of deep affection and undying love. Ideal for anniversaries, surprises, or any romantic occasion, this bouquet is a sincere way to express how much you cherish and adore the person who means the world to you.',
+       'Fresh premium red roses, Baby’s breath, and Lush green leaves'
+    )">
+
+       <img src="../images/anniv1.png">
+
+        <div class="anniversaryflowers-info">
+            <h4>₱2,899</h4>
+            <p>Scarlet Devotion Bouquet</p>       
+         </div>
+    </div>
+
+    <!--Anniversaries FLOWER 2 -->
+    <div class="anniversaryflowers-card" onclick="openProduct(
+        '../images/anniv2.png',
+        'Eternal Unity Bouquet',
+        '₱3,299',
+        'A stunning arrangement of rich red roses highlighted by a single elegant white bloom and delicate baby’s breath, this bouquet symbolizes passionate love, purity, and one-of-a-kind connection. Perfect for anniversaries or special romantic moments, it’s a meaningful gift that honors the beautiful, unique bond you share and every cherished memory built together.',
+        'Premium deep red roses, 1 white rose, fresh baby’s breath, and green foliage.'
+    )">
+
+        <img src="../images/anniv2.png">
+
+        <div class="anniversaryflowers-info">
+            <h4>₱3,299</h4>
+            <p>Eternal Unity Bouquet</p>
+        </div>
+    </div>
+
+  <!--Anniversaries FLOWER 3 -->
+    <div class="anniversaryflowers-card" onclick="openProduct(
+        '../images/anniv3.png',
+        'Blush Harmony Bouquet',
+        '₱2,299',
+        'A beautiful mix of pink roses and fresh blooms, this bouquet symbolizes love, joy, and lasting connection. Perfect for anniversaries, it’s a heartfelt gift that celebrates every sweet moment shared together.',
+           'Soft Pink Roses, Light Pink Carnations, White Gerberas, White Lisianthus, Spray Roses, Eucalyptus Leaves, and Fresh Green Foliage.'
+    )">
+
+        <img src="../images/anniv3.png">
+
+        <div class="anniversaryflowers-info">
+            <h4>₱2,299</h4>
+            <p>Blush Harmony Bouquet</p>
+        </div>
+    </div>
+
+
+    <!--Anniversaries FLOWER 4 -->
+    <div class="anniversaryflowers-card" onclick="openProduct(
+        '../images/anniv4.png',
+        'Timeless Romance Bouquet',
+        '₱3,750',
+        'A beautiful blend of pink, white, and pink tulips that symbolizes pure love, passion, and lasting commitment. Made to celebrate anniversaries filled with unforgettable memories and genuine affection.',
+        'Premium white tulips, Soft pink tulips, Fresh green foliage.'
+    )">
+
+        <img src="../images/anniv4.png">
+
+        <div class="anniversaryflowers-info">
+            <h4>₱3,750</h4>
+            <p>Timeless Romance Bouquet</p>     
+          </div>
+    </div>
+
+
+        
+    <!--Anniversaries FLOWER 5 -->
+    <div class="anniversaryflowers-card" onclick="openProduct(
+        '../images/anniv5.png',
+        'Blush Grace Bouquet',
+        '₱1,599',
+        'A soft, elegant, and full of meaning this bouquet of pink roses is perfect for expressing love, specially for anniversary. Its delicate beauty brings warmth to every moment, making it a thoughtful gift for someone truly special. Simple yet unforgettable, a bouquet is made to leave hearts smiling.',
+        'Soft Pink Roses, Light Pink Carnations, Fresh Baby’s breath.'
+    )">
+
+        <img src="../images/anniv5.png">
+
+        <div class="anniversaryflowers-info">
+            <h4>₱1,599</h4>
+            <p>Blush Grace Bouquet</p>
+        </div>
+    </div>
+  
+
+  <!--Anniversaries FLOWER 6 -->
+    <div class="anniversaryflowers-card" onclick="openProduct(
+        '../images/anniv6.png',
+        'Forever Love Bouquet',
+        '₱1,699',
+        'Soft and meaningful, this pink gerbera bouquet is made to celebrate lasting love and unforgettable anniversaries. A sweet reminder that true love only grows stronger with time.',
+        'Pink gerberas, Soft pink roses, Fresh baby’s breath, eucalyptus leaves.'
+    )">
+
+        <img src="../images/anniv6.png">
+
+        <div class="anniversaryflowers-info">
+            <h4>₱1,699</h4>
+            <p>Forever Love Bouquet</p>
+       </div>
+    </div>
+
+
+    <!--Anniversaries FLOWER 7 -->
+    <div class="anniversaryflowers-card" onclick="openProduct(
+        '../images/anniv7.png',
+        'Sweetheart Bliss Bouquet',
+        '₱1,799',
+        'Made for anniversaries filled with love and sweet memories, this pink carnation bouquet symbolizes happiness, admiration, and lasting affection. A simple yet heartfelt gift for the one who means everything.',
+        'Soft Pink Carnations, Fresh Baby’s breath.'
+    )">
+
+        <img src="../images/anniv7.png">
+
+        <div class="anniversaryflowers-info">
+            <h4>₱1,799</h4>
+            <p>Sweetheart Bliss Bouquet</p>
+        </div>
+    </div>
+
+
+    <!--Anniversaries FLOWER 8 -->
+    <div class="anniversaryflowers-card" onclick="openProduct(
+        '../images/anniv8.png',
+        'Golden Romance Bouquet',
+        '₱3,999',
+        'Crafted to express deep love and cherished memories, this stunning arrangement blends rich red blooms with luxurious accents. It stands as a symbol of passion, devotion, and a love that shines bright through every season.',
+        'Red roses, Baby’s breath (gypsophila), Ferrero Rocher chocolates, Fresh green fillers.'
+    )">
+
+        <img src="../images/anniv8.png">
+
+        <div class="anniversaryflowers-info">
+            <h4>₱3,999</h4>
+            <p>Golden Romance Bouquet</p>
+        </div>
+    </div>
+
+
+    <!--Anniversaries FLOWER 8 -->
+    <div class="anniversaryflowers-card" onclick="openProduct(
+        '../images/anniv8.png',
+        'Golden Romance Bouquet',
+        '₱3,999',
+        'Crafted to express deep love and cherished memories, this stunning arrangement blends rich red blooms with luxurious accents. It stands as a symbol of passion, devotion, and a love that shines bright through every season.',
+        'Red roses, baby’s breath (gypsophila), Ferrero Rocher chocolates, fresh green fillers.'
+    )">
+
+        <img src="../images/anniv8.png">
+
+        <div class="anniversaryflowers-info">
+            <h4>₱3,999</h4>
+            <p>Golden Romance Bouquet</p>
+        </div>
+    </div>
+
+
+   <!--Anniversaries FLOWER 10 -->
+    <div class="anniversaryflowers-card" onclick="openProduct(
+        '../images/anniv10.png',
+        'Heart’s Devotion Bouquet',
+        '₱4,499',
+        'Carefully arranged in a stunning heart shape, this bold mix of deep red and pristine white roses embodies passionate love, purity, and unwavering commitment. A breathtaking symbol of a love that is both fiery and sincere  perfect for anniversaries.',
+        'Red roses, white roses and black ribbon.'
+    )">
+
+        <img src="../images/anniv10.png">
+
+       <div class="anniversaryflowers-info">
+            <h4>₱4,499</h4>
+            <p>Heart’s Devotion Bouquet</p>
+        </div>
+    </div>
+
+
+    </div>
+
+    </div>
+
+    
+
+<!-- PRODUCT POPUP -->
+<div class="product-popup" id="productPopup">
+
+    <span class="popup-close" onclick="closeProduct()">×</span>
+
+    <div class="popup-content">
+
+        
+
+        <!-- LEFT -->
+        <div class="popup-left">
+            <img id="popup-img">
+        </div>
+
+        <!-- RIGHT -->
+        <div class="popup-right">
+
+            <h2 id="popup-title"></h2>
+
+            <h3 id="popup-price"></h3>
+
+            <p id="popup-description"></p>
+
+            <div class="popup-section">
+                <h4>Flowers</h4>
+                <p id="popup-flowers"></p>
+            </div>
+
+            <button class="buy-btn" onclick="buyNow()">
+                    Buy Now
+            </button>
+            
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- checkout page -->
+
+   <div class="checkout-popup" id="checkoutPopup">
+
+    <div class="checkout-box">
+
+        <span class="close-checkout" onclick="closeCheckout()">×</span>
+
+        <!-- CHECKOUT CONTENT MO DITO -->
+        <div class="checkout-page">
+
+            <h2> Checkout Details</h2>
+            <p> Customer Name: <input type="text" class="name-input"></p>
+            <p> Contact Number: <input type="text" class="contact-input"></p>
+            <p> Delivery Address: <input type="text" class="address-input"></p>
+            <p> Delivery Date & Time: <input type="datetime-local" class="date-input"></p>
+
+            <p> Add a message for the recipient (optional): </p>
+            <textarea class="message-box"></textarea>
+
+            <div class="payment-option">
+
+   <div class="cod">
+        <input type="radio" name="payment">
+        
+        <span>Cash on Delivery</span>
+    </div>
+
+   
+</div>
+
+            <p>Quantity:</p>
+        <input type="number" value="1" min="1" class="qty-input" oninput="updateTotal()">
+        <h3>Subtotal: ₱<span id="subtotal">0</span></h3>
+        <h3>Shipping Fee: ₱<span id="shipping">150</span></h3>
+        <h2>Total Purchase: ₱<span id="totalPrice">0</span></h2>
+
+            <button class="confirm-btn" onclick="confirmPurchase()">
+                Confirm Purchase
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+    
+    
+<div class="bdayphoto">
+        <a href="#" class="bcard" onclick=" openBirthdayCard(event)()">
+             <img src="../images/bdayy.jpg">
+            <div class="text">
+                Birthday <br> Selection
+            </div>
+        </a>
+    </div>
+
+
+    
+    <div class="birthdayflowers" id="birthdaycard">
+
+        <span onclick="closeBirthdayCard()" class="close-btn">×</span>
+
+        <h2>Birthday Collection</h2>
+        <p class="bdayp"> Celebrate the joy and happiness of birthdays with our vibrant collection of floral arrangements.
+            Each bouquet is thoughtfully designed to convey cheerfulness, love, and the spirit of celebration on this special occasion.</p>
+
+            <div class="birthdayflowers-container">
+
+            
+    <!--BIRTHDAY FLOWER 1 -->
+    <div class="birthdayflowers-card" onclick="openProduct(
+        '../images/bday1.png',
+        'Pink Blossom Bouquet',
+        '₱1,500',
+        ' A soft and elegant bouquet that symbolizes sweetness, admiration, and happiness. Perfect for birthdays and heartfelt surprises.',
+        'Pink roses, White Chrysanthemums, Pompom Pums, and Pini Pillers, '
+    )">
+
+        <img src="../images/bday1.png">
+
+        <div class="birthdayflowers-info">
+            <h4>₱1,500</h4>
+            <p>Pink Blossom Bouquet</p>
+        </div>
+    </div>
+
+
+    <!--BIRTHDAY FLOWER 2 -->
+    <div class="birthdayflowers-card" onclick="openProduct(
+        '../images/bday2.png',
+        'Blush Garden Bouquet',
+        '₱1,700',
+        'A fresh and charming bouquet that symbolizes love, joy, and appreciation. Its soft pink and white tones create a sweet and elegant arrangement perfect for birthdays, anniversaries, graduations, and special surprises.',
+        'Pink Poses, White roses, Pink Gerbera Gaisies, White Chrysanthemums, Baby’s breath, and Eucalyptus,'
+    )">
+
+        <img src="../images/bday2.png">
+
+        <div class="birthdayflowers-info">
+            <h4>₱1,700</h4>
+            <p>Blush Garden Bouquet</p>
+        </div>
+    </div>
+
+
+            
+  
+<!--BIRTHDAY FLOWER 3 -->
+    <div class="birthdayflowers-card" onclick="openProduct(
+        '../images/bday3.png',
+        'Pastel Bloom Bouquet',
+        '₱1,600',
+        'A warm and vibrant bouquet that symbolizes happiness, positivity, and admiration. The soft pastel shades combined with fresh greenery create a charming and elegant arrangement perfect for birthdays, congratulations, and thoughtful gifts.',
+        'Peach roses, chrysanthemums, daisy mums, golden fillers, and eucalyptus, '
+    )">
+
+        <img src="../images/bday3.png">
+
+        <div class="birthdayflowers-info">
+            <h4>₱1,600</h4>
+            <p>Pastel Bloom Bouquet</p>
+        </div>
+    </div>
+
+
+    <!--BIRTHDAY FLOWER 4 -->
+    <div class="birthdayflowers-card" onclick="openProduct(
+        '../images/bday4.png',
+        'Soft Pink Whisper Bouquet',
+        '₱1,100',
+        'A dreamy and delicate arrangement featuring soft pink roses surrounded by fluffy white baby’s breath. It symbolizes gentle love, sincerity, and sweet admiration. The pastel pink wrapping enhances its soft, romantic vibe, ideal for anniversaries, birthdays, or expressing heartfelt affection.',
+        'Light pink roses, white baby’s breath (gypsophila), '
+    )">
+
+        <img src="../images/bday4.png">
+
+        <div class="birthdayflowers-info">
+            <h4>₱1,100</h4>
+            <p>Soft Pink Whisper Bouquet</p>
+        </div>
+    </div>
+
+
+
+    <!--BIRTHDAY FLOWER 5 -->
+    <div class="birthdayflowers-card" onclick="openProduct(
+        '../images/bday5.png',
+        'Soft Pink Bouquet',
+        '₱1,800',
+        'Sweet & romantic arrangement of soft pink roses with airy pink fillers. Symbolizes gentle love and sincere affection. Perfect for birthdays, anniversaries, or heartfelt surprises.',
+        'Light pink roses, pink baby’s breath, wax flowers, '
+    )">
+
+        <img src="../images/bday5.png">
+
+        <div class="birthdayflowers-info">
+            <h4>₱1,800</h4>
+            <p>Soft Pink  Bouquet</p>
+        </div>
+    </div>
+
+
+    <!--BIRTHDAY FLOWER 6 -->
+    <div class="birthdayflowers-card" onclick="openProduct(
+        '../images/bday6.png',
+        'Pure Serenity Bouquet',
+        '₱1,250',
+        'Elegant mix of white lilies & cream roses, accented with warm orange blooms & soft fillers. Symbolizes purity & warm wishes. Great for all occasions.',
+        'White lilies, cream roses, orange carnations, white chrysanthemums, baby’s breath, greens, '
+    )">
+
+        <img src="../images/bday6.png">
+
+        <div class="birthdayflowers-info">
+            <h4>₱1,250</h4>
+            <p>Pure Serenity Bouquet</p>
+        </div>
+    </div>
+
+
+    <!--BIRTHDAY FLOWER 7 -->
+    <div class="birthdayflowers-card" onclick="openProduct(
+        '../images/bday7.png',
+        'Soft Pastel Bliss Bouquet',
+        '₱1,300',
+        'Dreamy blend of lilac & peach tones, filled with delicate blooms & fresh foliage. Symbolizes gentleness, sweetness & joy. Perfect for birthdays, anniversaries or surprises.',
+        'Lavender roses, peach roses, stock flowers, waxflowers, berries, eucalyptus , '
+    )">
+
+        <img src="../images/bday7.png">
+
+        <div class="birthdayflowers-info">
+            <h4>₱1,300</h4>
+            <p>Soft Pastel Bliss Bouquet</p>
+        </div>
+    </div>
+
+
+<!--BIRTHDAY FLOWER 8 -->
+    <div class="birthdayflowers-card" onclick="openProduct(
+        '../images/bday8.png',
+        'Coral Glow Bouquet',
+        '₱1,450',
+        'Bright pink + coral tones, lush blooms & soft foliage. Full of warmth, joy & sweet affection. Great for birthdays, surprises or special moments.',
+        'Pink peony roses, freesias, astilbe, variegated pittosporum & fresh greens , '
+    )">
+
+        <img src="../images/bday8.png">
+
+        <div class="birthdayflowers-info">
+            <h4>₱1,450</h4>
+            <p>Coral Glow Bouquet</p>
+        </div>
+    </div>
+
+
+<!--BIRTHDAY FLOWER 9 -->
+<div class="birthdayflowers-card" onclick="openProduct(
+    '../images/bday9.png',
+    'Blush & Bloom Bouquet',
+    '₱1,250',
+    'Soft pastel pinks mixed with crisp whites for a clean, elegant look. A delicate arrangement that symbolizes purity, new beginnings, and gentle admiration. Perfect for graduations, anniversaries, or a just because gift to brighten someone’s day.',
+    'Pink and white tulips, baby’s breath (gypsophila), and lush green stems.'
+)">
+
+    <img src="../images/bday9.png">
+
+    <div class="birthdayflowers-info">
+        <h4>₱1,250</h4>
+        <p>Blush & Bloom Bouquet</p>
+    </div>
+    </div>
+
+
+<!--BIRTHDAY FLOWER 10-->
+    <div class="birthdayflowers-card" onclick="openProduct(
+        '../images/bday10.png',
+        'Golden Sunshine Bouquet',
+        '₱1,150',
+        'A bold and cheerful arrangement featuring vibrant golden petals paired with rustic burlap accents. Radiating positivity, loyalty, and long life, this bouquet is like a bundle of pure happiness. An ideal choice for graduations, &quot;get well soon&quot; wishes, or simply to celebrate a bright personality.',
+        'Sunflowers, White baby’s breath (gypsophila), Yellow solidago, and Deep green foliage.'
+    )">
+
+        <img src="../images/bday10.png">
+
+        <div class="birthdayflowers-info">
+            <h4>₱1,150</h4>
+            <p>Golden Sunshine Bouquet</p>
+        </div>
+    </div>
+
+
+
+    </div>
+
+    </div>
+
+    
+
+<!-- PRODUCT POPUP -->
+<div class="product-popup" id="productPopup">
+
+    <span class="popup-close" onclick="closeProduct()">×</span>
+
+    <div class="popup-content">
+
+        
+
+        <!-- LEFT -->
+        <div class="popup-left">
+            <img id="popup-img">
+        </div>
+
+        <!-- RIGHT -->
+        <div class="popup-right">
+
+            <h2 id="popup-title"></h2>
+
+            <h3 id="popup-price"></h3>
+
+            <p id="popup-description"></p>
+
+            <div class="popup-section">
+                <h4>Flowers</h4>
+                <p id="popup-flowers"></p>
+            </div>
+
+            <button class="buy-btn" onclick="buyNow()">
+                    Buy Now
+            </button>
+            
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- checkout page -->
+
+   <div class="checkout-popup" id="checkoutPopup">
+
+    <div class="checkout-box">
+
+        <span class="close-checkout" onclick="closeCheckout()">×</span>
+
+        <!-- CHECKOUT CONTENT MO DITO -->
+        <div class="checkout-page">
+
+            <h2> Checkout Details</h2>
+            <p> Customer Name: <input type="text" class="name-input"></p>
+            <p> Contact Number: <input type="text" class="contact-input"></p>
+            <p> Delivery Address: <input type="text" class="address-input"></p>
+            <p> Delivery Date & Time: <input type="datetime-local" class="date-input"></p>
+
+            <p> Add a message for the recipient (optional): </p>
+            <textarea class="message-box"></textarea>
+
+            <div class="payment-option">
+
+   <div class="cod">
+        <input type="radio" name="payment">
+        
+        <span>Cash on Delivery</span>
+    </div>
+
+    
+
+
+</div>
+
+            <p>Quantity:</p>
+        <input type="number" value="1" min="1" class="qty-input" oninput="updateTotal()">
+        <h3>Subtotal: ₱<span id="subtotal">0</span></h3>
+        <h3>Shipping Fee: ₱<span id="shipping">150</span></h3>
+        <h2>Total Purchase: ₱<span id="totalPrice">0</span></h2>
+
+            <button class="confirm-btn" onclick="confirmPurchase()">
+                Confirm Purchase
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    
+
+
+<div class="weddingphoto">
+        <a href="#" class="wcard" onclick=" openWeddingCard(event)()">
+             <img src="../images/wedding.jpg">
+            <div class="text">
+                Wedding <br> Selection
+            </div>
+        </a>
+    </div>
+    
+    <div class="weddingflowers" id="weddingcard">
+
+        <span onclick="closeWeddingCard()" class="close-btn">×</span>
+
+        <h2>Wedding Collection</h2>
+        <p class="weddingp"> Celebrate the love and commitment of weddings with our stunning collection of floral arrangements.
+            Each bouquet is thoughtfully designed to convey romance, appreciation, and the beauty of enduring love on this special occasion.</p>
+
+            <div class="weddingflowers-container">
+
+            
+                
+    <!--WEDDING FLOWER 1 -->
+    <div class="weddingflowers-card" onclick="openProduct(
+        '../images/wedding1.png',
+        'Blush Rose Bouquet',
+        '₱4,500',
+        'A soft and elegant bouquet with light pink and white flowers that symbolizes love, purity, and happiness. Perfect for weddings and graduations.',
+        'White Roses, Blush Pink Roses, Baby’s Breath, Peony-style Flowers, Green Fillers'
+    )">
+
+        <img src="../images/wedding1.png">
+
+        <div class="weddingflowers-info">
+            <h4>₱4,500</h4>
+            <p>Blush Rose Bouquet</p>
+        </div>
+    </div>
+
+
+    <!--WEDDING FLOWER 2 -->
+    <div class="weddingflowers-card" onclick="openProduct(
+        '../images/wedding2.png',
+        'Dusty Pink Rose Bouquet',
+        '₱3,000',
+        'A classy bouquet with dusty pink roses and decorative accents. It gives a romantic and luxurious style.',
+        'Dusty Pink Roses, White Roses, Baby’s Breath, Gold Berry Fillers, Dried Bunny Tail Grass, Green Leaves'
+    )">
+
+        <img src="../images/wedding2.png">
+
+        <div class="weddingflowers-info">
+            <h4>₱3,000</h4>
+            <p>Dusty Pink Rose Bouquet</p>
+        </div>
+    </div>
+
+
+    <!--WEDDING FLOWER 3 -->
+    <div class="weddingflowers-card" onclick="openProduct(
+        '../images/wedding3.png',
+        'Pastel Garden Bouquet',
+        '₱6,000',
+        'A fresh and natural-looking bouquet made with pastel flowers and greenery. It symbolizes peace, sweetness, and elegance.',
+        'White Roses, Pink Garden Roses,Ranunculus,Baby’s Breath,Eucalyptus Leaves,Small White Fillers'
+    )">
+
+        <img src="../images/wedding3.png">
+
+        <div class="weddingflowers-info">
+            <h4>₱6,000</h4>
+            <p>Pastel Garden Bouquet</p>
+        </div>
+    </div>
+
+    <!--WEDDING FLOWER 4 -->
+    <div class="weddingflowers-card" onclick="openProduct(
+        '../images/wedding4.png',
+        'Ivory Rose Bouquet',
+        '₱4,500',
+        'A romantic and timeless bouquet with soft blush pink and ivory tones. This arrangement has a lush, rounded shape with delicate greenery and airy filler flowers, perfect for weddings, engagements, or elegant events.',
+        'White Roses, Blush Garden Roses, Ranunculus, Baby’s Breath (Gypsophila), Wax Flowers, Eucalyptus Leaves'
+    )">
+
+        <img src="../images/wedding4.png">
+
+        <div class="weddingflowers-info">
+            <h4>₱4,500</h4>
+            <p>Ivory Rose Bouquet</p>
+        </div>
+    </div>
+
+    <!--WEDDING FLOWER 5 -->
+    <div class="weddingflowers-card" onclick="openProduct(
+        '../images/wedding5.png',
+        'Soft Romantic Garden Bouquet',
+        '₱7,500',
+        'A soft and feminine bouquet featuring creamy white roses and dusty blush blooms with flowing greenery. The bouquet has a natural garden-inspired feel with a graceful bridal aesthetic.',
+        'White Roses, Blush Spray Roses, Garden Roses, Baby’s Breath, Wax Flowers, Seeded Eucalyptus, Italian Ruscus Greenery'
+    )">
+
+        <img src="../images/wedding5.png">
+
+        <div class="weddingflowers-info">
+            <h4>₱7,500</h4>
+            <p>Soft Romantic Garden Bouquet</p>
+        </div>
+    </div>
+
+
+    <!--WEDDING FLOWER 6 -->
+    <div class="weddingflowers-card" onclick="openProduct(
+        '../images/wedding6.png',
+        'Wild Pastel Spring Bouquet',
+        '₱3,600',
+        'A playful wildflower-inspired bouquet with pastel pink, yellow, blue, and peach tones. Designed with a loose airy shape for a whimsical and artistic look.',
+        'Pink Ranunculus, Peach Roses, Lisianthus, Chamomile Daisies, Yellow Craspedia (Billy Balls), Delphinium, Tulips, Alstroemeria, Scabiosa, Seasonal Wildflowers'
+    )">
+
+        <img src="../images/wedding6.png">
+
+        <div class="weddingflowers-info">
+            <h4>₱3,600</h4>
+            <p>Wild Pastel Spring Bouquet</p>
+        </div>
+    </div>
+
+    <!--WEDDING FLOWER 7 -->
+    <div class="weddingflowers-card" onclick="openProduct(
+        '../images/wedding7.png',
+        'Golden Blush Bouquet',
+        '₱3,400',
+        'A cheerful and elegant hand bouquet featuring soft peach, pink, and golden yellow blooms arranged in a fresh garden-inspired style.',
+        'Pink Gerbera DaiPink Gerbera Daisies,Yellow Gerbera Daisies,Pink Spray Chrysanthemums,Yellow Craspedia (Billy Balls),Pink Tulipssies,Yellow Gerbera Daisies,Pink Spray Chrysanthemums,Yellow Craspedia (Billy Balls),Pink Tulips'
+    )">
+
+        <img src="../images/wedding7.png">
+
+        <div class="weddingflowers-info">
+            <h4>₱3,400</h4>
+            <p>Golden Blush Bouquet</p>
+        </div>
+    </div>
+
+
+    <!--WEDDING FLOWER 8 -->
+    <div class="weddingflowers-card" onclick="openProduct(
+        '../images/wedding8.png',
+        'Lavender Bloom Bouquet',
+        '₱3,800',
+        'A soft and dreamy bouquet designed with delicate pastel blooms in shades of lavender, blush pink, white, and sky blue.',
+        'Pink Ranunculus,White Ranunculus,Lavender Anemones,Pink Poppies,White Daisies,Lisianthus'
+    )">
+
+        <img src="../images/wedding8.png">
+
+        <div class="weddingflowers-info">
+            <h4>₱3,800</h4>
+            <p>Lavender Bloom Bouquet</p>
+        </div>
+    </div>
+
+    <!--WEDDING FLOWER 9 -->
+    <div class="weddingflowers-card" onclick="openProduct(
+        '../images/wedding9.png',
+        'Soft Pastel Wildflower Mix',
+        '₱3,900',
+        ' whimsical and airy bouquet featuring a dreamy palette of lilac, soft pink, and white. ',
+        'Pink and White Ranunculus,Gerbera Daisies (Light Pink),Blue Anemones,Purple Statice,Lavender Scabiosa'
+    )">
+
+        <img src="../images/wedding9.png">
+
+        <div class="weddingflowers-info">
+            <h4>₱3,800</h4>
+            <p>Soft Pastel Wildflower Mix</p>
+        </div>
+    </div>
+
+    <!--WEDDING FLOWER 10 -->
+    <div class="weddingflowers-card" onclick="openProduct(
+        '../images/wedding11.png',
+        'Lilac & Peony Dream',
+        '₱4,000',
+        'A lush, full-bodied bouquet that focuses on volume and fragrance.',
+        'Soft Pink and White Peonies, Roses,Lavender Roses,Cream Spray Roses'
+    )">
+
+        <img src="../images/wedding11.png">
+
+        <div class="weddingflowers-info">
+            <h4>₱4,000</h4>
+            <p>Lilac & Peony Dream</p>
+        </div>
+    </div>
+
+
+    <!--WEDDING FLOWER 11 -->
+    <div class="weddingflowers-card" onclick="openProduct(
+        '../images/wedding10.png',
+        'Deep Crimson & Cream Romance',
+        '₱4,400',
+        'A rich, moody, and luxurious arrangement. This bouquet features deep red tones paired with creamy neutrals and eucalyptus, offering a timeless and passionate aesthetic that is very popular for formal events.',
+        'Tulips,Lavender Roses,Blue and Blush Roses,White Peonies'
+    )">
+
+        <img src="../images/wedding10.png">
+
+        <div class="weddingflowers-info">
+            <h4>₱4,400</h4>
+            <p>Deep Crimson & Cream Romance</p>
+        </div>
+    </div>
+
+    <!--WEDDING FLOWER 12 -->
+    <div class="weddingflowers-card" onclick="openProduct(
+        '../images/wedding12.png',
+        'Pastel Meadow Symphony',
+        '₱3,800',
+        'A vibrant yet soft arrangement that captures the essence of a spring meadow.',
+        'White and Hot Pink Ranunculus,Pink Gerbera Daisies,Purple Statice,Blue Anemones,Lavender Scabiosa,White Lisianthus buds'
+    )">
+
+        <img src="../images/wedding12.png">
+
+        <div class="weddingflowers-info">
+            <h4>₱3,800</h4>
+            <p>Pastel Meadow Symphony</p>
+        </div>
+    </div>
+
+            
+  
+
+
+
+
+    </div>
+
+    </div>
+
+    
+
+<!-- PRODUCT POPUP -->
+<div class="product-popup" id="productPopup">
+
+    <span class="popup-close" onclick="closeProduct()">×</span>
+
+    <div class="popup-content">
+
+        
+
+        <!-- LEFT -->
+        <div class="popup-left">
+            <img id="popup-img">
+        </div>
+
+        <!-- RIGHT -->
+        <div class="popup-right">
+
+            <h2 id="popup-title"></h2>
+
+            <h3 id="popup-price"></h3>
+
+            <p id="popup-description"></p>
+
+            <div class="popup-section">
+                <h4>Flowers</h4>
+                <p id="popup-flowers"></p>
+            </div>
+
+            <button class="buy-btn" onclick="buyNow()">
+                    Buy Now
+            </button>
+            
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- checkout page -->
+
+   <div class="checkout-popup" id="checkoutPopup">
+
+    <div class="checkout-box">
+
+        <span class="close-checkout" onclick="closeCheckout()">×</span>
+
+        <!-- CHECKOUT CONTENT MO DITO -->
+        <div class="checkout-page">
+
+            <h2> Checkout Details</h2>
+            <p> Customer Name: <input type="text" class="name-input"></p>
+            <p> Contact Number: <input type="text" class="contact-input"></p>
+            <p> Delivery Address: <input type="text" class="address-input"></p>
+            <p> Delivery Date & Time: <input type="datetime-local" class="date-input"></p>
+
+            <p> Add a message for the recipient (optional): </p>
+            <textarea class="message-box"></textarea>
+
+            <div class="payment-option">
+
+   <div class="cod">
+        <input type="radio" name="payment">
+        
+        <span>Cash on Delivery</span>
+    </div>
+
+    
+
+
+</div>
+
+            <p>Quantity:</p>
+        <input type="number" value="1" min="1" class="qty-input" oninput="updateTotal()">
+        <h3>Subtotal: ₱<span id="subtotal">0</span></h3>
+        <h3>Shipping Fee: ₱<span id="shipping">150</span></h3>
+        <h2>Total Purchase: ₱<span id="totalPrice">0</span></h2>
+
+            <button class="confirm-btn" onclick="confirmPurchase()">
+                Confirm Purchase
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- BRAND -->
+        <div class="footer-brand">
+            <h2>Everpetal Florist</h2>
+
+            <p>
+                Creating beautiful floral arrangements for every special moment.
+            </p>
+
+            <div class="footer-contact">
+                <p>Email:<a href="mailto: everpetal@gmail.com" style="color: white; text-decoration: none;"> everpetal@gmail.com</a></p>
+                <p>Facebook: Everpetal Florist</p>
+                <p>LinkedIn: Everpetal Florist</p>
+            </div>
+        </div>
+
+
+
+        <!-- FOOTER LINKS -->
+        <div class="footer-links">
+
+            <a href="#" onclick="openAboutUsCard()">About Us</a>
+
+            <a href="#" onclick="openTakeCare()">Flower Care</a>
+
+            <a href="#" onclick="openFaqs()">FAQs</a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        All rights reserved © 2026 Everpetal
+    </div>
+
+</footer>
+
+
+
+<!-- ================= ABOUT US MODAL ================= -->
+<div class="footer-modal" id="aboutus">
+
+    <div class="modal-content">
+
+        <span class="close-btn" onclick="closeAboutUsCard()">×</span>
+
+        <img src="../images/pexel.jpg" style="border-radius: 5px; margin: auto; width: 100%; max-width: 600px; display: block;" margin-bottom: 20px;>
+
+        <h2 style="margin-top: 3%;">About Everpetal Florist</h2>
+
+        <p class="aboutp">
+            At Everpetal Florist, flowers are more than just what we sell — they’re at the heart of everything we do. 
+            We are passionate about creating beautiful floral experiences for every occasion, from everyday moments to life’s most meaningful celebrations.
+
+            We believe choosing flowers should feel exciting and effortless. That’s why we carefully provide fresh, high-quality blooms and thoughtfully crafted arrangements that bring beauty, emotion, and elegance to every order. 
+
+            Whether you’re shopping online or visiting our collection, you can always expect exceptional service, attention to detail, and flowers made with care.
+
+            More than a flower shop, Everpetal is a community that celebrates creativity, love, and the timeless art of floristry.
+        </p>
+
+    </div>
+
+</div>
+
+
+<footer>
+<!-- ================= FLOWER CARE MODAL ================= -->
+<div class="footer-modal" id="takecare">
+
+    <div class="modal-content">
+
+        <span class="close-btn" onclick="closeTakeCare()">×</span>
+
+        <h2>How to Take Care of Your Flowers</h2>
+
+        <p class="howp">
+
+Use clean water and vases
+Always use clean buckets or vases to avoid bacteria that can make flowers wilt quickly.
+
+<br><br>
+
+Remove extra leaves
+Remove leaves that are below the water line because they can rot and dirty the water.
+
+<br><br>
+
+Daily Flower Care
+Change the water every day
+Fresh water helps flowers last longer and keeps them smelling fresh.
+
+<br><br>
+
+Keep flowers in a cool place
+Avoid direct sunlight, electric fans, and too much heat because flowers dry out faster.
+
+<br><br>
+
+Mist the flowers lightly
+Spray a little water on petals to help keep them fresh and hydrated.
+
+<br><br>
+
+Check for wilted flowers
+Remove damaged or dead flowers immediately so the arrangement still looks beautiful.
+
+<br><br>
+
+For Flower Shop or Selling Display
+Store flowers properly
+If possible, place flowers in a refrigerated area or cool room during hot weather.
+
+<br><br>
+
+Handle flowers gently
+Avoid crushing petals or bending stems while arranging or delivering bouquets.
+
+<br><br>
+
+Use flower food
+Add flower food or a small amount of sugar and lemon to the water to help flowers last longer.
+
+<br><br>
+
+Extra Tip
+Good flower care makes customers happier because the bouquet stays fresh longer after they buy it. Fresh flowers also help your shop look more professional and attractive.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= FAQS MODAL ================= -->
+<div class="footer-modal" id="faqs">
+
+    <div class="modal-content faq-modal">
+
+        <span class="close-btn" onclick="closeFaqs()">×</span>
+
+        <h2>FAQs</h2>
+
+
+        <h2>Ordering & Delivery</h2>
+
+        <p class="faqsp"><u>1. How can customers place an order?</u><br>
+        Customers can place their orders directly through the website by
+        selecting their preferred bouquet and completing the checkout process. </p>
+
+        <br>
+
+        <p class="faqsp"><u>2. Does the shop offer same-day delivery?</u><br>
+        Yes, same-day delivery is available for selected areas and orders placed before the cut-off time. </p>
+                
+        <br>
+
+        <p class="faqsp"><u>3. What areas does the shop deliver to?</u><br>
+        The shop delivers to nearby cities and selected areas. Delivery availability is shown during checkout.</p>
+
+        <br>
+
+        <p class="faqsp"><u>4. How long does delivery take?</u><br>
+        Delivery usually takes around 1–3 hours depending on the customer’s location and order volume.</p>
+
+        <br>
+
+        <p class="faqsp"><u>5. Can customers schedule deliveries in advance?</u><br>
+        Yes, customers can choose their preferred delivery date and time during checkout.</p>
+
+        <br>
+
+        <p class="faqsp"><u>6. Does the shop accept rush orders?</u><br>
+        Yes, rush orders are accepted depending on flower availability and delivery schedule.</p>
+
+        <br>
+
+        <p class="faqsp"><u>7. Can customers change or cancel their orders after placing them?</u><br>
+        Yes, changes or cancellations are allowed if the order has not yet been prepared or dispatched.</p>
+
+        <br>
+
+        <h2>Payment</h2>
+
+        <p class="faqsp"><u>8. What payment methods does the shop accept?</u><br>
+        The shop accepts GCash, Paypal and Cash on Delivery (COD) for selected areas.</p>
+
+        <br>
+
+        <p class="faqsp"><u>10. Is Cash on Delivery (COD) available?</u><br>
+        Yes, COD is available in selected delivery locations.</p>
+
+        <br>
+
+        <p class="faqsp"><u>11. Is online payment safe on the website?</u><br>
+        Yes, the website uses secure payment gateways to protect customer information.</p>
+
+        <br>
+
+        <h2>Flowers & Products</h2>
+
+        <p class="faqsp"><u>12. Are the flowers fresh?</u><br>
+        Yes, the flowers are carefully prepared and arranged daily to ensure freshness and quality.</p>
+
+        <br>
+
+        <p class="faqsp"><u>13. Does the shop customize flower bouquets?</u><br>
+        Yes, the shop offers customization options for flower bouquets to suit different occasions and preferences.</p>
+
+        <br>
+
+        <p class="faqsp"><u>14. Can customers request specific flower colors?</u><br>
+        Yes, customers may request specific flower colors depending on availability.</p>
+
+        <br>
+
+        <p class="faqsp"><u>15. Does the shop offer flowers for special occasions?</u><br>
+        Yes, flowers are available for birthdays, anniversaries, weddings, graduations, sympathy, Valentine’s Day, and many other occasions.</p>
+
+    </div>
+
+</div>  
+
+</footer>
+
+
+
+
+
+<script>
+
+
+/* ================= SCROLL CONTROL ================= */
+
+let scrollPosition = 0;
+
+function disableScroll(){
+    scrollPosition = window.pageYOffset;
+
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = "100%";
+}
+
+function enableScroll(){
+
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.width = "";
+
+    window.scrollTo(0, scrollPosition);
+}
+
+
+/* ================= HELPERS ================= */
+
+function safeOpen(id, e){
+
+    if(e) e.preventDefault();
+
+    document.getElementById(id).classList.add("show");
+    disableScroll();
+}
+
+function safeClose(id){
+
+    document.getElementById(id).classList.remove("show");
+    enableScroll();
+}
+
+
+/* ================= CATEGORY MODALS ================= */
+
+function openMotherFlowers(e){
+    safeOpen("motherflowers", e);
+}
+
+function closeMotherFlowers(){
+    safeClose("motherflowers");
+}
+
+
+function openValentineCard(e){
+    safeOpen("valentinecard", e);
+}
+
+function closeValentineCard(){
+    safeClose("valentinecard");
+}
+
+
+function openAnniversaryCard(e){
+    safeOpen("anniversarycard", e);
+}
+
+function closeAnniversaryCard(){
+    safeClose("anniversarycard");
+}
+
+
+function openGraduationCard(e){
+    safeOpen("gradcard", e);
+}
+
+function closeGraduationCard(){
+    safeClose("gradcard");
+}
+
+
+function openSympathyCard(e){
+    safeOpen("sympathycard", e);
+}
+
+function closeSympathyCard(){
+    safeClose("sympathycard");
+}
+
+
+function openBirthdayCard(e){
+    safeOpen("birthdaycard", e);
+}
+
+function closeBirthdayCard(){
+    safeClose("birthdaycard");
+}
+
+
+function openWeddingCard(e){
+    safeOpen("weddingcard", e);
+}
+
+function closeWeddingCard(){
+    safeClose("weddingcard");
+}
+
+
+/* ================= OTHER MODALS ================= */
+
+function openAboutUsCard(e){
+    safeOpen("aboutus", e);
+}
+
+function closeAboutUsCard(){
+    safeClose("aboutus");
+}
+
+
+function openTakeCare(e){
+    safeOpen("takecare", e);
+}
+
+function closeTakeCare(){
+    safeClose("takecare");
+}
+
+
+function openFaqs(e){
+    safeOpen("faqs", e);
+}
+
+function closeFaqs(){
+    safeClose("faqs");
+}
+
+
+/* ================= OUTSIDE CLICK CLOSE ================= */
+
+window.onclick = function(event){
+
+    const aboutus = document.getElementById("aboutus");
+    const takecare = document.getElementById("takecare");
+    const faqs = document.getElementById("faqs");
+
+    if(event.target == aboutus){
+        closeAboutUsCard();
+    }
+
+    if(event.target == takecare){
+        closeTakeCare();
+    }
+
+    if(event.target == faqs){
+        closeFaqs();
+    }
+};
+
+
+/* ================= PRODUCT ================= */
+
+let shippingFee = 150;
+let currentPrice = 0;
+
+
+function openProduct(img, title, price, desc, flowers, extra, e){
+
+    if(e) e.preventDefault();
+
+    document.getElementById("productPopup").classList.add("show");
+
+    document.getElementById("popup-img").src = img;
+    document.getElementById("popup-title").innerText = title;
+    document.getElementById("popup-price").innerText = price;
+    document.getElementById("popup-description").innerText = desc;
+    document.getElementById("popup-flowers").innerText = flowers;
+
+    currentPrice = parseFloat(price.replace("₱","").replace(",",""));
+
+    disableScroll();
+}
+
+
+function closeProduct(){
+    document.getElementById("productPopup").classList.remove("show");
+    enableScroll();
+}
+
+
+/* ================= CHECKOUT ================= */
+
+function buyNow(){
+    closeProduct();
+    openCheckout();
+}
+
+
+function openCheckout(){
+
+    document.getElementById("checkoutPopup").style.display = "flex";
+    updateTotal();
+    disableScroll();
+}
+
+
+function closeCheckout(){
+
+    document.getElementById("checkoutPopup").style.display = "none";
+    enableScroll();
+}
+
+
+function updateTotal(){
+
+    let qty = parseInt(document.querySelector(".qty-input").value) || 1;
+
+    let subtotal = currentPrice * qty;
+    let total = subtotal + shippingFee;
+
+    document.getElementById("subtotal").innerText = subtotal.toLocaleString();
+    document.getElementById("shipping").innerText = shippingFee.toLocaleString();
+    document.getElementById("totalPrice").innerText = total.toLocaleString();
+}
+
+
+/* ================= CONFIRM ================= */
+
+function confirmPurchase(){
+
+    let name = document.querySelector(".name-input").value.trim();
+    let contact = document.querySelector(".contact-input").value.trim();
+    let address = document.querySelector(".address-input").value.trim();
+    let payment = document.querySelector('input[name="payment"]:checked');
+
+    if(name === "" || contact === "" || address === ""){
+        alert("Please fill out all required information.");
+        return;
+    }
+
+    if(!payment){
+        alert("Please select a payment method.");
+        return;
+    }
+
+    alert("🌸 Thank you for choosing Everpetal! Order Successfully Placed.");
+
+    closeCheckout();
+}
+
+function searchItems(event){
+
+    event.preventDefault();
+
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let items = document.querySelectorAll(".product-card");
+
+    items.forEach(item => {
+
+        let text = item.innerText.toLowerCase();
+
+        if(text.includes(input)){
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+    });
+}
+
+</script>
+
+</script>
+</body>
+</html>
